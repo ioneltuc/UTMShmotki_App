@@ -1,0 +1,15 @@
+C:\Users\tenti\Desktop\UTMShmotki.Application\bin\Debug\net6.0\UTMShmotki.Application.deps.json
+C:\Users\tenti\Desktop\UTMShmotki.Application\bin\Debug\net6.0\UTMShmotki.Application.dll
+C:\Users\tenti\Desktop\UTMShmotki.Application\bin\Debug\net6.0\UTMShmotki.Application.pdb
+C:\Users\tenti\Desktop\UTMShmotki.Application\bin\Debug\net6.0\UTMShmotki.Domain.dll
+C:\Users\tenti\Desktop\UTMShmotki.Application\bin\Debug\net6.0\UTMShmotki.Domain.pdb
+C:\Users\tenti\Desktop\UTMShmotki.Application\obj\Debug\net6.0\UTMShmotki.Application.csproj.AssemblyReference.cache
+C:\Users\tenti\Desktop\UTMShmotki.Application\obj\Debug\net6.0\UTMShmotki.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\tenti\Desktop\UTMShmotki.Application\obj\Debug\net6.0\UTMShmotki.Application.AssemblyInfoInputs.cache
+C:\Users\tenti\Desktop\UTMShmotki.Application\obj\Debug\net6.0\UTMShmotki.Application.AssemblyInfo.cs
+C:\Users\tenti\Desktop\UTMShmotki.Application\obj\Debug\net6.0\UTMShmotki.Application.csproj.CoreCompileInputs.cache
+C:\Users\tenti\Desktop\UTMShmotki.Application\obj\Debug\net6.0\UTMShmotki.Application.csproj.CopyComplete
+C:\Users\tenti\Desktop\UTMShmotki.Application\obj\Debug\net6.0\UTMShmotki.Application.dll
+C:\Users\tenti\Desktop\UTMShmotki.Application\obj\Debug\net6.0\refint\UTMShmotki.Application.dll
+C:\Users\tenti\Desktop\UTMShmotki.Application\obj\Debug\net6.0\UTMShmotki.Application.pdb
+C:\Users\tenti\Desktop\UTMShmotki.Application\obj\Debug\net6.0\ref\UTMShmotki.Application.dll
