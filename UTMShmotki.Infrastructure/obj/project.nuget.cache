@@ -1,11 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "ynGFw/RyeSRODEw98lqikcg+ec7JTpYpbqrTBWUk58J/Ql19AOHmuNCMzfjPmpynirEdX+JB9/6FMaNyNz2JVA==",
+  "dgSpecHash": "y/ef8NnYLTtply4LVD0Ny+0bz5ecx5NGlEvD6M2NHdd4m7xeJ/27+wp3lfAvoBhjaTT6EWXM11Ylwf/1f4OP/A==",
   "success": true,
   "projectFilePath": "C:\\Users\\tenti\\Desktop\\UTMShmotki_App\\UTMShmotki.Infrastructure\\UTMShmotki.Infrastructure.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\tenti\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
     "C:\\Users\\tenti\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
-    "C:\\Users\\tenti\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
+    "C:\\Users\\tenti\\.nuget\\packages\\mediatr\\11.0.0\\mediatr.11.0.0.nupkg.sha512",
+    "C:\\Users\\tenti\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512",
+    "C:\\Users\\tenti\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\tenti\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",
     "C:\\Users\\tenti\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.1.1\\microsoft.data.sqlclient.sni.runtime.2.1.1.nupkg.sha512",
     "C:\\Users\\tenti\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.9\\microsoft.entityframeworkcore.6.0.9.nupkg.sha512",

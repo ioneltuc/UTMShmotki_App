@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using MediatR;
+using Microsoft.AspNetCore.Mvc;
+using UTMShmotki.Application.App.Products.Dto;
+using UTMShmotki.Application.App.Products.Queries;
 using UTMShmotki.Application.Interfaces;
 using UTMShmotki.Domain;
 
@@ -9,10 +12,12 @@ namespace UTMShmotki.API.Controllers
     public class ProductController : ControllerBase
     {
         private readonly IProductService _service;
+        private readonly IMediator _mediator;
 
-        public ProductController(IProductService service)
+        public ProductController(IProductService service, IMediator mediator)
         {
             _service = service;
+            _mediator = mediator;
         }
 
         [HttpGet]
@@ -23,12 +28,20 @@ namespace UTMShmotki.API.Controllers
             return products;
         }
 
-        [HttpGet("{id}")]
-        public Product GetProduct(int id)
-        {
-            var product = _service.GetProductById(id);
+        //[HttpGet("{id}")]
+        //public Product GetProduct(int id)
+        //{
+        //    var product = _service.GetProductById(id);
 
-            return product;
+        //    return product;
+        //}
+
+        [HttpGet("{id}")]
+        public Task<ProductDto> GetProduct(int id)
+        {
+            var productDto = _mediator.Send(new GetProductByIdQuery() { Id = id });
+
+            return productDto;
         }
 
         [HttpPost]

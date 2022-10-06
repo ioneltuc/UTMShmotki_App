@@ -1,8 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "Jd6gLL22dNj1uJjtrJlr5RiX9RYgHVNm1O3Mly9kEK+Fi8GNVJd3joTOu2xMPclU+bIubC9A7kjDCZ7pLwn29w==",
+  "dgSpecHash": "bDTKQkEJcA6FzIwCMWEStV7W8yn8dd8Q+LLOMnvbjVpkWsjgflkmrqmJep8Hj3w86IzQJJuiKik5ArVP16aTOg==",
   "success": true,
   "projectFilePath": "C:\\Users\\tenti\\Desktop\\UTMShmotki_App\\UTMShmotki.Application\\UTMShmotki.Application.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\tenti\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
+    "C:\\Users\\tenti\\.nuget\\packages\\mediatr\\11.0.0\\mediatr.11.0.0.nupkg.sha512",
+    "C:\\Users\\tenti\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512",
+    "C:\\Users\\tenti\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\11.0.0\\mediatr.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
+    "C:\\Users\\tenti\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\tenti\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512"
+  ],
   "logs": []
 }
