@@ -1,8 +1,8 @@
 {
   "Version": 1,
-  "Hash": "pa/9lX2cmxhXL/GXUX4s4wI6+4CjqrNOHwY4npNprRc=",
-  "Source": "UTMShmotki",
-  "BasePath": "_content/UTMShmotki",
+  "Hash": "8gAeXo9CzFJpV8Pg1IegLNpO2ro5SOe+g+oB1I+E7lA=",
+  "Source": "UTMShmotki.API",
+  "BasePath": "_content/UTMShmotki.API",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],

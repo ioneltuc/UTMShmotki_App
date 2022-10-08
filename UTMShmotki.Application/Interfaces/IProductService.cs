@@ -7,7 +7,7 @@ namespace UTMShmotki.Application.Interfaces
         Product GetProductById(int id);
         List<Product> GetAllProducts();
         void AddProduct(Product product);
-        void UpdateProductById(int id, Product product);
+        void UpdateProductById();
         void DeleteProductById(int id);
     }
 }

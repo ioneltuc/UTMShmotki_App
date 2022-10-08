@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using UTMShmotki.Application.App.Products.Dto;
+using UTMShmotki.Application.App.Products.Commands;
+using UTMShmotki.Application.App.Products.Dtos;
 using UTMShmotki.Application.App.Products.Queries;
 using UTMShmotki.Application.Interfaces;
 using UTMShmotki.Domain;
@@ -21,39 +22,34 @@ namespace UTMShmotki.API.Controllers
         }
 
         [HttpGet]
-        public List<Product> GetAllProducts()
+        public async Task<List<ProductListDto>> GetAllProducts()
         {
-            var products = _service.GetAllProducts();
+            var products = await _mediator.Send(new GetAllProductsQuery());
 
-            return products;
+            return products.ToList();
         }
-
-        //[HttpGet("{id}")]
-        //public Product GetProduct(int id)
-        //{
-        //    var product = _service.GetProductById(id);
-
-        //    return product;
-        //}
 
         [HttpGet("{id}")]
         public Task<ProductDto> GetProduct(int id)
         {
-            var productDto = _mediator.Send(new GetProductByIdQuery() { Id = id });
+            var productDto = _mediator.Send(new GetProductByIdQuery() { ProductId = id });
 
             return productDto;
         }
 
         [HttpPost]
-        public void CreateProduct(Product product)
+        public Task<ProductDto> CreateProduct(CreateProductCommand product)
         {
-            _service.AddProduct(product);
+            var productDto = _mediator.Send(product);
+
+            return productDto;
         }
 
         [HttpPut("{id}")]
-        public void UpdateProduct(int id, [FromBody]Product product)
+        public async Task UpdateProduct(int id, UpdateProductCommand command)
         {
-            _service.UpdateProductById(id, product);
+            command.Id = id;
+            await _mediator.Send(command);
         }
 
         [HttpDelete("{id}")]

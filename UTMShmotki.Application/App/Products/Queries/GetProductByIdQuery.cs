@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
-using UTMShmotki.Application.App.Products.Dto;
+using UTMShmotki.Application.App.Products.Dtos;
 using UTMShmotki.Application.Interfaces.Repositories;
 using UTMShmotki.Domain;
 
@@ -8,7 +8,7 @@ namespace UTMShmotki.Application.App.Products.Queries
 {
     public class GetProductByIdQuery : IRequest<ProductDto>
     {
-        public int Id { get; set; }
+        public int ProductId { get; set; }
     }
 
     public class GetProductByIdQueryHandler : IRequestHandler<GetProductByIdQuery, ProductDto>
@@ -24,7 +24,7 @@ namespace UTMShmotki.Application.App.Products.Queries
 
         public async Task<ProductDto> Handle(GetProductByIdQuery query, CancellationToken cancellationToken)
         {
-            var product = _repository.GetById<Product>(query.Id);
+            var product = _repository.GetById<Product>(query.ProductId);
             var productDto = _mapper.Map<ProductDto>(product);
             return productDto;
         }

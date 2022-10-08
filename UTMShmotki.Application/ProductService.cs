@@ -37,9 +37,9 @@ namespace UTMShmotki.Application
             return product;
         }
 
-        public void UpdateProductById(int id, Product product)
+        public void UpdateProductById()
         {
-            _productRepository.UpdateById<Product>(id, product);
+            _productRepository.UpdateById<Product>();
         }
     }
 }

@@ -43,9 +43,9 @@ namespace UTMShmotki.Infrastructure.Repositories
             return _storeDbContext.Find<T>(id);
         }
 
-        public virtual void UpdateById<T>(int id, T newEntity) where T : Entity
+        public void UpdateById<T>() where T : Entity
         {
-  
+            _storeDbContext.SaveChanges();
         }
     }
 }

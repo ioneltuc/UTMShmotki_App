@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UTMShmotki", "UTMShmotki.csproj", "{4236021E-1C13-4286-B57F-B19D4EF7DB47}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UTMShmotki.API", "UTMShmotki.API.csproj", "{4236021E-1C13-4286-B57F-B19D4EF7DB47}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UTMShmotki.Domain", "..\UTMShmotki.Domain\UTMShmotki.Domain.csproj", "{BC9B33FD-A5EA-48C1-BE13-452045753146}"
 EndProject

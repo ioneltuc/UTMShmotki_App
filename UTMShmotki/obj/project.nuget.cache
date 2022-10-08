@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "GQmkOCcWIhp4+0qr6HwJredw5WImgXr31xI59OcQZz+UifwczIt/jTpCuEul1WFTfiJC8Dco4AOSvdX0EZxuVQ==",
+  "dgSpecHash": "8pEuWJO7Ed6lrB6mUF+3U5OuoLnE4uCWcCmr/ORZlqZeD55c5TVZYQFvI7B2fxsgP6sebQiaI36ei20SpXyspQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\tenti\\Desktop\\UTMShmotki_App\\UTMShmotki\\UTMShmotki.csproj",
+  "projectFilePath": "C:\\Users\\tenti\\Desktop\\UTMShmotki_App\\UTMShmotki\\UTMShmotki.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\tenti\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
+    "C:\\Users\\tenti\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",
     "C:\\Users\\tenti\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\tenti\\.nuget\\packages\\mediatr\\11.0.0\\mediatr.11.0.0.nupkg.sha512",
     "C:\\Users\\tenti\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512",
