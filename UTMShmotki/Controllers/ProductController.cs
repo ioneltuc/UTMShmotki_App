@@ -3,8 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using UTMShmotki.Application.App.Products.Commands;
 using UTMShmotki.Application.App.Products.Dtos;
 using UTMShmotki.Application.App.Products.Queries;
-using UTMShmotki.Application.Interfaces;
-using UTMShmotki.Domain;
 
 namespace UTMShmotki.API.Controllers
 {
@@ -12,12 +10,10 @@ namespace UTMShmotki.API.Controllers
     [ApiController]
     public class ProductController : ControllerBase
     {
-        private readonly IProductService _service;
         private readonly IMediator _mediator;
 
-        public ProductController(IProductService service, IMediator mediator)
+        public ProductController(IMediator mediator)
         {
-            _service = service;
             _mediator = mediator;
         }
 
@@ -55,7 +51,7 @@ namespace UTMShmotki.API.Controllers
         [HttpDelete("{id}")]
         public void DeleteProduct(int id)
         {
-            _service.DeleteProductById(id);
+            _mediator.Send(new DeleteProductCommand() { Id = id });
         }
     }
 }

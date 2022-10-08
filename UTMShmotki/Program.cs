@@ -15,9 +15,9 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<StoreDbContext>(opt => opt.UseSqlServer(configuration.GetConnectionString("DefaultConnection"),
      b => b.MigrationsAssembly("UTMShmotki.Infrastructure")));
-builder.Services.AddScoped<IProductService, ProductService>();
-builder.Services.AddScoped<IProductRepository, ProductRepository>();
+
 builder.Services.AddScoped<IRepository, EFCoreRepository>();
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddApplicationLayer();
 
 var app = builder.Build();
