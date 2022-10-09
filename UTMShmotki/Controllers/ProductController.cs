@@ -26,17 +26,17 @@ namespace UTMShmotki.API.Controllers
         }
 
         [HttpGet("{id}")]
-        public Task<ProductDto> GetProduct(int id)
+        public async Task<ProductDto> GetProduct(int id)
         {
-            var productDto = _mediator.Send(new GetProductByIdQuery() { ProductId = id });
+            var productDto = await _mediator.Send(new GetProductByIdQuery() { ProductId = id });
 
             return productDto;
         }
 
         [HttpPost]
-        public Task<ProductDto> CreateProduct(CreateProductCommand product)
+        public async Task<ProductDto> CreateProduct(CreateProductCommand product)
         {
-            var productDto = _mediator.Send(product);
+            var productDto = await _mediator.Send(product);
 
             return productDto;
         }
@@ -49,9 +49,9 @@ namespace UTMShmotki.API.Controllers
         }
 
         [HttpDelete("{id}")]
-        public void DeleteProduct(int id)
+        public async Task DeleteProduct(int id)
         {
-            _mediator.Send(new DeleteProductCommand() { Id = id });
+            await _mediator.Send(new DeleteProductCommand() { Id = id });
         }
     }
 }

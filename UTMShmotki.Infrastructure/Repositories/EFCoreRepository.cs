@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 using UTMShmotki.Application.Interfaces.Repositories;
 using UTMShmotki.Domain;
 using UTMShmotki.Infrastructure.Contexts;
@@ -20,9 +21,9 @@ namespace UTMShmotki.Infrastructure.Repositories
             _storeDbContext.SaveChanges();
         }
 
-        public void DeleteById<T>(int id) where T : Entity
+        public async Task DeleteById<T>(int id) where T : Entity
         {
-            var entity = _storeDbContext.Set<T>().Find(id);
+            var entity = await _storeDbContext.Set<T>().FindAsync(id);
 
             if(entity == null)
             {
@@ -33,19 +34,19 @@ namespace UTMShmotki.Infrastructure.Repositories
             _storeDbContext.SaveChanges();
         }
 
-        public List<T> GetAll<T>() where T : Entity
+        public async Task<List<T>> GetAll<T>() where T : Entity
         {
-            return _storeDbContext.Set<T>().ToList();   
+            return await _storeDbContext.Set<T>().ToListAsync();   
         }
 
-        public T GetById<T>(int id) where T : Entity
+        public async Task<T> GetById<T>(int id) where T : Entity
         {
-            return _storeDbContext.Find<T>(id);
+            return await _storeDbContext.FindAsync<T>(id);
         }
 
-        public void UpdateById<T>() where T : Entity
+        public async Task UpdateById<T>() where T : Entity
         {
-            _storeDbContext.SaveChanges();
+            await _storeDbContext.SaveChangesAsync();
         }
     }
 }

@@ -28,8 +28,8 @@ namespace API_Unit_Tests.Mocks
 
             var mockRepo = new Mock<IProductRepository>();
 
-            mockRepo.Setup(x => x.GetAll<Product>()).Returns(products);
-            mockRepo.Setup(x => x.GetById<Product>(2)).Returns(products[1]);
+            mockRepo.Setup(x => x.GetAll<Product>()).ReturnsAsync(products);
+            mockRepo.Setup(x => x.GetById<Product>(2)).ReturnsAsync(products[1]);
             mockRepo.Setup(x => x.AddEntity<Product>(It.IsAny<Product>()));
 
             return mockRepo;

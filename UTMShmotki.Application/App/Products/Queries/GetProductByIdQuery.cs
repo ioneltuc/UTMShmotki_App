@@ -24,7 +24,7 @@ namespace UTMShmotki.Application.App.Products.Queries
 
         public async Task<ProductDto> Handle(GetProductByIdQuery query, CancellationToken cancellationToken)
         {
-            var product = _repository.GetById<Product>(query.ProductId);
+            var product = await _repository.GetById<Product>(query.ProductId);
             var productDto = _mapper.Map<ProductDto>(product);
             return productDto;
         }

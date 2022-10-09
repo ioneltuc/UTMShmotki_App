@@ -4,10 +4,10 @@ namespace UTMShmotki.Application.Interfaces.Repositories
 {
     public interface IRepository
     {
-        T GetById<T>(int id) where T : Entity;
-        List<T> GetAll<T>() where T : Entity;
+        Task<T> GetById<T>(int id) where T : Entity;
+        Task<List<T>> GetAll<T>() where T : Entity;
         void AddEntity<T>(T entity) where T : Entity;
-        void UpdateById<T>() where T : Entity;
-        void DeleteById<T>(int id) where T : Entity;
+        Task UpdateById<T>() where T : Entity;
+        Task DeleteById<T>(int id) where T : Entity;
     }
 }
