@@ -14,7 +14,7 @@ namespace UTMShmotki.Application.App.Products.Commands
     {
         private readonly IRepository _repository;
 
-        public DeleteProductCommandHandler(IMapper mapper, IRepository repository)
+        public DeleteProductCommandHandler(IRepository repository)
         {
             _repository = repository;
         }

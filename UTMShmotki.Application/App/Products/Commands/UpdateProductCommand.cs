@@ -13,12 +13,12 @@ namespace UTMShmotki.Application.App.Products.Commands
         public decimal Price { get; set; }
     }
 
-    public class UpdaUpdateProductCommandHandler : IRequestHandler<UpdateProductCommand>
+    public class UpdateProductCommandHandler : IRequestHandler<UpdateProductCommand>
     {
         private readonly IMapper _mapper;
         private readonly IRepository _repository;
 
-        public UpdaUpdateProductCommandHandler(IMapper mapper, IRepository repository)
+        public UpdateProductCommandHandler(IMapper mapper, IRepository repository)
         {
             _mapper = mapper;
             _repository = repository;
