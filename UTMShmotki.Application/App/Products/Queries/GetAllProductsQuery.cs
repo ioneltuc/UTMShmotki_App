@@ -23,7 +23,7 @@ namespace UTMShmotki.Application.App.Products.Queries
 
         public async Task<IEnumerable<ProductListDto>> Handle(GetAllProductsQuery query, CancellationToken cancellationToken)
         {
-            var products = await _repository.GetAll<Product>();
+            var products = await _repository.GetAllAsync<Product>();
             var porductsDto = _mapper.Map<IEnumerable<Product>, IEnumerable<ProductListDto>>(products);
             return porductsDto;
         }

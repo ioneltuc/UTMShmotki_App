@@ -21,7 +21,7 @@ namespace UTMShmotki.Application.App.Products.Commands
 
         public async Task<Unit> Handle(DeleteProductCommand command, CancellationToken cancellationToken)
         {
-            await _repository.DeleteById<Product>(command.Id);
+            await _repository.DeleteByIdAsync<Product>(command.Id);
             return Unit.Value;
         }
     }

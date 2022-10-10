@@ -26,9 +26,9 @@ namespace UTMShmotki.Application.App.Products.Commands
 
         public async Task<Unit> Handle(UpdateProductCommand command, CancellationToken cancellationToken)
         {
-            var product = await _repository.GetById<Product>(command.Id);
+            var product = await _repository.GetByIdAsync<Product>(command.Id);
             _mapper.Map(command, product);
-            await _repository.UpdateById<Product>();
+            await _repository.UpdateByIdAsync<Product>();
             return Unit.Value;
         }
     }

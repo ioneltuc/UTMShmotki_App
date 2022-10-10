@@ -27,7 +27,7 @@ namespace UTMShmotki.Application.App.Products.Commands
         public async Task<ProductDto> Handle(CreateProductCommand command, CancellationToken cancellationToken)
         {
             var product = _mapper.Map<Product>(command);
-            _repository.AddEntity(product);
+            await _repository.AddEntityAsync(product);
 
             var productDto = _mapper.Map<ProductDto>(product);
 

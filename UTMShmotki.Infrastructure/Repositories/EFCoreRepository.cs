@@ -15,13 +15,13 @@ namespace UTMShmotki.Infrastructure.Repositories
             _storeDbContext = storeDbContext;
         }
 
-        public void AddEntity<T>(T entity) where T : Entity
+        public async Task AddEntityAsync<T>(T entity) where T : Entity
         {
-            _storeDbContext.Set<T>().Add(entity);
-            _storeDbContext.SaveChanges();
+            await _storeDbContext.Set<T>().AddAsync(entity);
+            await _storeDbContext.SaveChangesAsync();
         }
 
-        public async Task DeleteById<T>(int id) where T : Entity
+        public async Task DeleteByIdAsync<T>(int id) where T : Entity
         {
             var entity = await _storeDbContext.Set<T>().FindAsync(id);
 
@@ -31,20 +31,27 @@ namespace UTMShmotki.Infrastructure.Repositories
             }
 
             _storeDbContext.Set<T>().Remove(entity);
-            _storeDbContext.SaveChanges();
+            await _storeDbContext.SaveChangesAsync();
         }
 
-        public async Task<List<T>> GetAll<T>() where T : Entity
+        public async Task<List<T>> GetAllAsync<T>() where T : Entity
         {
             return await _storeDbContext.Set<T>().ToListAsync();   
         }
 
-        public async Task<T> GetById<T>(int id) where T : Entity
+        public async Task<T> GetByIdAsync<T>(int id) where T : Entity
         {
-            return await _storeDbContext.FindAsync<T>(id);
+            var entity = await _storeDbContext.FindAsync<T>(id);
+
+            if (entity == null)
+            {
+                throw new ValidationException($"Object of type {typeof(T)} with id {id} not found");
+            }
+
+            return entity;
         }
 
-        public async Task UpdateById<T>() where T : Entity
+        public async Task UpdateByIdAsync<T>() where T : Entity
         {
             await _storeDbContext.SaveChangesAsync();
         }
