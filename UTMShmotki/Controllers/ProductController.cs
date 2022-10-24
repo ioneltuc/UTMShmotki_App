@@ -17,13 +17,13 @@ namespace UTMShmotki.API.Controllers
             _mediator = mediator;
         }
 
-        [HttpGet]
-        public async Task<List<ProductListDto>> GetAllProducts()
-        {
-            var products = await _mediator.Send(new GetAllProductsQuery());
+        //[HttpGet]
+        //public async Task<List<ProductListDto>> GetAllProducts()
+        //{
+        //    var products = await _mediator.Send(new GetAllProductsQuery());
 
-            return products.ToList();
-        }
+        //    return products.ToList();
+        //}
 
         [HttpGet("{id}")]
         public async Task<ProductDto> GetProduct(int id)
@@ -33,6 +33,18 @@ namespace UTMShmotki.API.Controllers
             return productDto;
         }
 
+        [HttpGet]
+        public async Task<List<ProductPaginatedDto>> GetPaginatedProducts([FromQuery]int pageNumber, [FromQuery]int pageSize)
+        {
+            var productPaginatedDto = await _mediator.Send(new GetProductsPaginatedQuery() 
+            { 
+                PageNumber = pageNumber, 
+                PageSize = pageSize 
+            });
+
+            return productPaginatedDto.ToList();
+        }
+ 
         [HttpPost]
         public async Task<ProductDto> CreateProduct(CreateProductCommand product)
         {

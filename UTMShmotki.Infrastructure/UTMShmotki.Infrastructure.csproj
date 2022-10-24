@@ -23,4 +23,8 @@
     <ProjectReference Include="..\UTMShmotki.Application\UTMShmotki.Application.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
 </Project>

@@ -1,4 +1,6 @@
-﻿using UTMShmotki.Application.Interfaces.Repositories;
+﻿using Microsoft.EntityFrameworkCore;
+using UTMShmotki.Application.Interfaces.Repositories;
+using UTMShmotki.Domain;
 using UTMShmotki.Infrastructure.Contexts;
 
 namespace UTMShmotki.Infrastructure.Repositories
@@ -10,6 +12,14 @@ namespace UTMShmotki.Infrastructure.Repositories
         public ProductRepository(StoreDbContext storeDbContext) : base(storeDbContext)
         {
             _storeDbContext = storeDbContext;
+        }
+
+        public async Task<List<Product>> GetPaginatedAsync(int pageNumber, int pageSize)
+        {
+            return await _storeDbContext.Products
+                .Skip((pageNumber - 1) * pageSize)
+                .Take(pageSize)
+                .ToListAsync();
         }
     }
 }

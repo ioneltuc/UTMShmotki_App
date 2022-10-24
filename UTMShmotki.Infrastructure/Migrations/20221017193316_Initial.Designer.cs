@@ -12,8 +12,8 @@ using UTMShmotki.Infrastructure.Contexts;
 namespace UTMShmotki.Infrastructure.Migrations
 {
     [DbContext(typeof(StoreDbContext))]
-    [Migration("20221006172653_Initial_Migration")]
-    partial class Initial_Migration
+    [Migration("20221017193316_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

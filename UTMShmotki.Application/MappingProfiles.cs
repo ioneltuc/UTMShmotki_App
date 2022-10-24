@@ -14,6 +14,7 @@ namespace UTMShmotki.Application
             CreateMap<Product, CreateProductCommand>().ReverseMap();
             CreateMap<Product, UpdateProductCommand>().ReverseMap();
             CreateMap<Product, ProductListDto>().ReverseMap();
+            CreateMap<Product, ProductPaginatedDto>().ReverseMap();
         }
     }
 }

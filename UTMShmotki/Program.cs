@@ -1,6 +1,5 @@
 using Microsoft.EntityFrameworkCore;
 using UTMShmotki.Application;
-using UTMShmotki.Application.Interfaces;
 using UTMShmotki.Application.Interfaces.Repositories;
 using UTMShmotki.Infrastructure.Contexts;
 using UTMShmotki.Infrastructure.Repositories;
@@ -8,6 +7,15 @@ using UTMShmotki.Infrastructure.Repositories;
 var builder = WebApplication.CreateBuilder(args);
 
 ConfigurationManager configuration = builder.Configuration;
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: "MyPolicy",
+        policy =>
+        {
+            policy.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin();
+        });
+});
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
@@ -33,5 +41,7 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.UseCors("MyPolicy");
 
 app.Run();
