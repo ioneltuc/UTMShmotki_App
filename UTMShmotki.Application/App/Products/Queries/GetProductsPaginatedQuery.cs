@@ -10,6 +10,8 @@ namespace UTMShmotki.Application.App.Products.Queries
     {
         public int PageNumber { get; set; }
         public int PageSize { get; set; }
+        public string SearchString { get; set; } 
+        public string SortType { get; set; } 
     }
 
     public class GetProductsPaginatedQueryHandler : IRequestHandler<GetProductsPaginatedQuery, IEnumerable<ProductPaginatedDto>>
@@ -25,7 +27,7 @@ namespace UTMShmotki.Application.App.Products.Queries
 
         public async Task<IEnumerable<ProductPaginatedDto>> Handle(GetProductsPaginatedQuery query, CancellationToken cancellationToken)
         {
-            var products = await _repository.GetPaginatedAsync(query.PageNumber, query.PageSize);
+            var products = await _repository.GetPaginatedAsync(query.PageNumber, query.PageSize, query.SearchString, query.SortType);
             var porductsPaginatedDto = _mapper.Map<IEnumerable<Product>, IEnumerable<ProductPaginatedDto>>(products);
 
             return porductsPaginatedDto;

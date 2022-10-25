@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using UTMShmotki.Application.App.Products;
 using UTMShmotki.Application.App.Products.Commands;
 using UTMShmotki.Application.App.Products.Dtos;
 using UTMShmotki.Application.App.Products.Queries;
@@ -34,12 +35,14 @@ namespace UTMShmotki.API.Controllers
         }
 
         [HttpGet]
-        public async Task<List<ProductPaginatedDto>> GetPaginatedProducts([FromQuery]int pageNumber, [FromQuery]int pageSize)
+        public async Task<List<ProductPaginatedDto>> GetPaginatedProducts([FromQuery] PaginationQuery query)
         {
             var productPaginatedDto = await _mediator.Send(new GetProductsPaginatedQuery() 
             { 
-                PageNumber = pageNumber, 
-                PageSize = pageSize 
+                PageNumber = query.PageNumber, 
+                PageSize = query.PageSize,
+                SearchString = query.Search,
+                SortType = query.Sort
             });
 
             return productPaginatedDto.ToList();
