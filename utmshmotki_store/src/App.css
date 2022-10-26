@@ -1,0 +1,21 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+header {
+  width: 100%;
+  height: 60px;
+  background-color: rgb(70, 159, 243);
+}
+
+nav {
+  display: flex;
+  gap: 30px;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
