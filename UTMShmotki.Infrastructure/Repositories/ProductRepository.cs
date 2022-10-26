@@ -16,10 +16,7 @@ namespace UTMShmotki.Infrastructure.Repositories
 
         public async Task<List<Product>> GetPaginatedAsync(int pageNumber, int pageSize, string searchString, string sortType)
         {
-            var result = _storeDbContext.Products
-                .Skip((pageNumber - 1) * pageSize)
-                .Take(pageSize)
-                .Where(p => p.Name.Contains(searchString) || p.Description.Contains(searchString));
+            var result = _storeDbContext.Products.Where(p => p.Name.Contains(searchString) || p.Description.Contains(searchString));
 
             switch(sortType)
             {
@@ -36,6 +33,8 @@ namespace UTMShmotki.Infrastructure.Repositories
                     result = result.OrderByDescending(p => p.Price);
                     break;
             }
+
+            result = result.Skip((pageNumber - 1) * pageSize).Take(pageSize);
 
             return await result.ToListAsync();
         }

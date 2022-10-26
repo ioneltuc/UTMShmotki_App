@@ -1,4 +1,4 @@
-import { Box, Button, FormControl, Grid, InputLabel, MenuItem, Pagination, Select, SelectChangeEvent, TextField } from "@mui/material"
+import { Box, Button, FormControl, InputLabel, MenuItem, Pagination, Select, SelectChangeEvent, Stack, TextField } from "@mui/material"
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { getProducts } from "../services/productService"
@@ -16,9 +16,34 @@ function Products(){
 const[item, setItem] = useState<Product[]>([])
 const[pageNumber, setPageNumber] = useState(1)
 const[pageSize, setPageSize] = useState(5)
-const[pageCount, setPageCount] = useState(10)
+const[pageCount, setPageCount] = useState(5)
 const[searchString, setSearchString] = useState('')
 const[sortType, setSortType] = useState('')
+
+//----------------------------------------
+
+// let urls = [
+//     `https://localhost:7061/api/product/2`,
+//     `https://localhost:7061/api/product/3`
+// ]
+
+// let requests = urls.map(url => fetch(url))
+
+// Promise.all(requests)
+//     .then(responses => {
+//         responses.forEach(response => {
+//             console.log(response.json())
+//         })
+//     })
+//     .catch(error => console.log(error))
+
+// Promise.race(requests)
+//     .then(response => {
+//             console.log(response.json())
+//         })
+//         .catch(error => console.log(error))
+
+//----------------------------------------
 
 useEffect(() => {
     fetchData();
@@ -50,21 +75,19 @@ const handleChangeSortType = (e: SelectChangeEvent) => {
 }
 
     return(
-        <div>
-            <Button>
-                <Link to="/add">
-                    <div>
-                        <AddIcon/>
-                        Add a product
-                    </div>
+        <div className="main-page">
+            <Button variant="outlined" startIcon={<AddIcon/>} id="add-product-btn">
+                <Link to="/add" className="product-btn-text">
+                    <span>Add a product</span>
                 </Link>
             </Button>
-            <div>
-                <TextField label="Search" value={searchString} onChange={handleChangeSearchString} />
+            <div className="filtering-form">
+                <TextField label="Search ..." value={searchString} onChange={handleChangeSearchString} />
                 <FormControl sx={{ minWidth: 120 }}>
-                    <InputLabel>Sort by</InputLabel>
+                    <InputLabel>Sort by ...</InputLabel>
                     <Select 
                         value={sortType}
+                        label="Sort by ..."
                         onChange={handleChangeSortType}
                     >
                         <MenuItem value="">None</MenuItem>
@@ -78,6 +101,7 @@ const handleChangeSortType = (e: SelectChangeEvent) => {
                     <InputLabel>Page size</InputLabel>
                     <Select 
                         value={pageSize}
+                        label="Page size"
                         onChange={handleChangePageSize}
                     >
                         <MenuItem value={5}>5</MenuItem>
@@ -87,20 +111,18 @@ const handleChangeSortType = (e: SelectChangeEvent) => {
                     </Select>
                 </FormControl>
             </div>
-            <Box sx={{width: '100%'}}>
-                <Grid container rowSpacing={3} columnSpacing={3}>
+            <Box className="products-container">
+                <Stack spacing={3}>
                     {item.map(p => {
                         return(
-                            <Grid key={p.id} item xs={4}>
-                                <Link to={{pathname:`/${p.id}`}}>
-                                    <p><strong>{p.name}</strong></p>
-                                    <p><strong>Description: </strong>{p.description}</p>
-                                    <p><strong>Price: </strong>${p.price}</p>
-                                </Link>
-                            </Grid> 
+                            <Link key={p.id} to={{pathname:`/${p.id}`}} className="single-product">
+                                <h2>{p.name}</h2>
+                                <p><strong>Description: </strong>{p.description}</p>
+                                <p><strong>Price: </strong>${p.price}</p>
+                            </Link> 
                         )
                     })}
-                </Grid>
+                </Stack>
             </Box>
             <Pagination count={pageCount} page={pageNumber} onChange={handleChangePageNumber}/>
         </div>

@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { deleteProductById, getProductById } from "../services/productService";
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
+import { Button } from "@mui/material";
 
 type Product = {
     id: number,
@@ -37,14 +38,16 @@ function ProductDetails(){
             <h3>{item?.name}</h3>
             <h4>{item?.description}</h4>
             <h4>{item?.price}</h4>
-            <button>
-                <Link to={`/update/${id}`}>
-                    <EditIcon fontSize="large"/>
+            <Button variant="outlined" startIcon={<EditIcon fontSize="large"/>} id="update-product-btn">
+                <Link to={`/update/${id}`} className="product-btn-text">
+                    Update product
                 </Link>
-            </button>
-            <Link to="/" onClick={deleteProduct}>
-                <DeleteIcon fontSize="large" />
-            </Link>
+            </Button>
+            <Button variant="outlined" startIcon={<DeleteIcon fontSize="large" />} id="delete-product-btn">
+                <Link to="/" onClick={deleteProduct} className="product-btn-text">
+                    Delete product
+                </Link>
+            </Button>
         </div>
     )
 }

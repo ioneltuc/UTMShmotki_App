@@ -5,6 +5,7 @@ import { getProductById, updateProductById } from "../services/productService";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Button } from "@mui/material";
+import EditIcon from '@mui/icons-material/Edit';
 
 type FormTypes = {
     name: string;
@@ -71,7 +72,9 @@ function UpdateProductForm(){
                 {errors.price && <span>{errors.price.message}</span>}
             </div>
 
-            <Button variant="contained" type="submit">Update</Button>
+            <Button type="submit" variant="outlined" startIcon={<EditIcon/>} id="submit-update-product-btn">
+                <span className="product-btn-text">Update</span>
+            </Button>
         </form>
     )
 }

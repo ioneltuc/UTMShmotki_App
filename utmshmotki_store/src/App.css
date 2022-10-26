@@ -8,14 +8,63 @@
 header {
   width: 100%;
   height: 60px;
-  background-color: rgb(70, 159, 243);
+  background-color: rgb(9, 121, 105);
 }
 
 nav {
   display: flex;
-  gap: 30px;
+  gap: 50px;
   height: 100%;
   align-items: center;
   justify-content: center;
   font-size: 24px;
+}
+
+.nav-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+}
+
+.nav-btn:visited {
+  color: none;
+}
+
+.product-btn-text {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+#add-product-btn,
+#update-product-btn,
+#delete-product-btn,
+#submit-update-product-btn,
+#add-submit-product-btn {
+  color: rgb(0, 0, 0);
+  border: rgb(0, 0, 0) 1px solid;
+  margin: 10px;
+}
+
+.filtering-form {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.products-container {
+  margin: 30px;
+  display: flex;
+  justify-content: center;
+  font-size: 16px;
+}
+
+.single-product {
+  border: rgb(0, 0, 0) 1px solid;
+  border-radius: 5px;
+  padding: 10px 30px;
+  color: rgb(0, 0, 0);
+  text-decoration: none;
 }

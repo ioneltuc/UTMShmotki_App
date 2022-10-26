@@ -2,8 +2,8 @@ import { useForm } from "react-hook-form"
 import * as yup from "yup"
 import { yupResolver } from "@hookform/resolvers/yup"
 import { postProduct } from "../services/productService";
-import AddCircleIcon from '@mui/icons-material/AddCircle';
 import { Button } from "@mui/material";
+import AddIcon from '@mui/icons-material/Add';
 
 type FormTypes = {
     name: string;
@@ -48,9 +48,8 @@ function AddProductForm(){
                 {errors.price && <span>{errors.price.message}</span>}
             </div>
 
-            <Button type="submit">
-                <AddCircleIcon/>
-                Add
+            <Button type="submit" variant="outlined" startIcon={<AddIcon/>} id="add-submit-product-btn">
+                <span className="product-btn-text">Add</span>
             </Button>
         </form>
     )

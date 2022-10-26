@@ -18,14 +18,6 @@ namespace UTMShmotki.API.Controllers
             _mediator = mediator;
         }
 
-        //[HttpGet]
-        //public async Task<List<ProductListDto>> GetAllProducts()
-        //{
-        //    var products = await _mediator.Send(new GetAllProductsQuery());
-
-        //    return products.ToList();
-        //}
-
         [HttpGet("{id}")]
         public async Task<ProductDto> GetProduct(int id)
         {
