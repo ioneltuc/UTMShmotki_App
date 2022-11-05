@@ -28,24 +28,24 @@ function AddProductForm(){
     }
 
     return(
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(onSubmit)} className="product-form">
 
             <div>
                 <label htmlFor="productName">Product name</label>
                 <input id="productName" type="text" {...register("name")}/>
-                {errors.name && <span>{errors.name.message}</span>}
+                {errors.name && <span className="form-error">{errors.name.message}</span>}
             </div>
 
             <div>
                 <label htmlFor="productDescription">Product description</label>
                 <input id="productDescription" type="text" {...register("description")}/>    
-                {errors.description && <span>{errors.description.message}</span>}
+                {errors.description && <span className="form-error">{errors.description.message}</span>}
             </div>
 
             <div>
                 <label htmlFor="productPrice">Product price</label>
                 <input id="productPrice" type="number" step="0.01" {...register("price")}/>    
-                {errors.price && <span>{errors.price.message}</span>}
+                {errors.price && <span className="form-error">{errors.price.message}</span>}
             </div>
 
             <Button type="submit" variant="outlined" startIcon={<AddIcon/>} id="add-submit-product-btn">

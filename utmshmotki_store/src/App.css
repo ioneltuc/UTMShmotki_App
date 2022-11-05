@@ -68,3 +68,19 @@ nav {
   color: rgb(0, 0, 0);
   text-decoration: none;
 }
+
+.product-form {
+  font-size: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-error{
+  font-size: 18px;
+  color: red;
+  display: block;
+  text-align: center;
+}

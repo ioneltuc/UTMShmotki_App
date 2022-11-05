@@ -20,31 +20,6 @@ const[pageCount, setPageCount] = useState(5)
 const[searchString, setSearchString] = useState('')
 const[sortType, setSortType] = useState('')
 
-//----------------------------------------
-
-// let urls = [
-//     `https://localhost:7061/api/product/2`,
-//     `https://localhost:7061/api/product/3`
-// ]
-
-// let requests = urls.map(url => fetch(url))
-
-// Promise.all(requests)
-//     .then(responses => {
-//         responses.forEach(response => {
-//             console.log(response.json())
-//         })
-//     })
-//     .catch(error => console.log(error))
-
-// Promise.race(requests)
-//     .then(response => {
-//             console.log(response.json())
-//         })
-//         .catch(error => console.log(error))
-
-//----------------------------------------
-
 useEffect(() => {
     fetchData();
 }, [])
