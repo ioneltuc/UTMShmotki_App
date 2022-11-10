@@ -21,7 +21,7 @@ namespace UTMShmotki.API.Controllers
         [HttpGet("{id}")]
         public async Task<ProductDto> GetProduct(int id)
         {
-            var productDto = await _mediator.Send(new GetProductByIdQuery() { ProductId = id });
+            var productDto = await _mediator.Send(new GetProductByIdQuery() { ProductId = id });   
 
             return productDto;
         }
@@ -29,9 +29,9 @@ namespace UTMShmotki.API.Controllers
         [HttpGet]
         public async Task<List<ProductPaginatedDto>> GetPaginatedProducts([FromQuery] PaginationQuery query)
         {
-            var productPaginatedDto = await _mediator.Send(new GetProductsPaginatedQuery() 
-            { 
-                PageNumber = query.PageNumber, 
+            var productPaginatedDto = await _mediator.Send(new GetProductsPaginatedQuery()
+            {
+                PageNumber = query.PageNumber,
                 PageSize = query.PageSize,
                 SearchString = query.Search,
                 SortType = query.Sort
@@ -39,12 +39,11 @@ namespace UTMShmotki.API.Controllers
 
             return productPaginatedDto.ToList();
         }
- 
+
         [HttpPost]
         public async Task<ProductDto> CreateProduct(CreateProductCommand product)
         {
             var productDto = await _mediator.Send(product);
-
             return productDto;
         }
 

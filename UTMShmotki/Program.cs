@@ -8,6 +8,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 ConfigurationManager configuration = builder.Configuration;
 
+
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy(name: "MyPolicy",

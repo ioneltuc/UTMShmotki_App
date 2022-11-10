@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form"
 import * as yup from "yup"
 import { yupResolver } from "@hookform/resolvers/yup"
 import { getProductById, updateProductById } from "../services/productService";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Button } from "@mui/material";
 import EditIcon from '@mui/icons-material/Edit';
@@ -22,7 +22,7 @@ const schema = yup.object({
 function UpdateProductForm(){
 
     const[item, setItem] = useState<FormTypes>()
-
+    const navigate = useNavigate();
     const { id } = useParams();
     
     useEffect(() => {
@@ -49,6 +49,7 @@ function UpdateProductForm(){
 
     const onSubmit = async (values: FormTypes) => {
         await updateProductById(id, values);
+        navigate('/', {replace: true})
     }
 
     return(

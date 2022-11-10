@@ -137,3 +137,4 @@ C:\Users\tenti\Desktop\UTMShmotki_App\UTMShmotki\obj\Debug\net6.0\UTMShmotki.API
 C:\Users\tenti\Desktop\UTMShmotki_App\UTMShmotki\obj\Debug\net6.0\UTMShmotki.API.genruntimeconfig.cache
 C:\Users\tenti\Desktop\UTMShmotki_App\UTMShmotki\obj\Debug\net6.0\ref\UTMShmotki.API.dll
 C:\Users\tenti\Desktop\UTMShmotki_App\UTMShmotki\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\tenti\Desktop\UTMShmotki_App\UTMShmotki\bin\Debug\net6.0\UTMShmotki.API.staticwebassets.runtime.json

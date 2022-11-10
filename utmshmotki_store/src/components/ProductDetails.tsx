@@ -29,7 +29,7 @@ function ProductDetails(){
     const deleteProduct = async () => {
         await deleteProductById(id)
         setTimeout(() => {
-            window.location.reload()
+            return
         },500)
     }
 

@@ -1,7 +1,7 @@
 type Product = {
     name: string;
     description: string;
-    price: number
+    price: number;
 }
 
 export async function getProducts(pageNumber: number, pageSize: number, searchString: string, sortType: string){

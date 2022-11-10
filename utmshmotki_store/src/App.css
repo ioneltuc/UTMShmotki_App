@@ -42,7 +42,7 @@ nav {
 #update-product-btn,
 #delete-product-btn,
 #submit-update-product-btn,
-#add-submit-product-btn {
+#submit-add-product-btn {
   color: rgb(0, 0, 0);
   border: rgb(0, 0, 0) 1px solid;
   margin: 10px;

@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "wpLSFX4Pfbn5/z36ykzRPl4vN5NyoqGnIbPPO9sRGUo1VFsNM2gTO5zdJ7t0l3x1aywuxrqZWMsO2btpEc9mbw==",
+  "dgSpecHash": "e3Vdh8HhXAZR0pU+g6v2nrIQv24mBf6nq6ROQWXmHTm6iDXfLBdTyop92hTmM8VLOrwoJeV9kTZYvtn3oObaIQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\tenti\\Desktop\\UTMShmotki_App\\UTMShmotki.Domain\\UTMShmotki.Domain.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\tenti\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.17\\microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512",
+    "C:\\Users\\tenti\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.1\\microsoft.extensions.primitives.5.0.1.nupkg.sha512",
+    "C:\\Users\\tenti\\.nuget\\packages\\system.io.pipelines\\5.0.2\\system.io.pipelines.5.0.2.nupkg.sha512"
+  ],
   "logs": []
 }

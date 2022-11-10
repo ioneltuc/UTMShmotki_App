@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
+using Microsoft.AspNetCore.Http;
 using UTMShmotki.Application.App.Products.Dtos;
 using UTMShmotki.Application.Interfaces.Repositories;
 using UTMShmotki.Domain;

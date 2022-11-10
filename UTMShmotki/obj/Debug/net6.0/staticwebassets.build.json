@@ -1,11 +1,19 @@
 {
   "Version": 1,
-  "Hash": "8gAeXo9CzFJpV8Pg1IegLNpO2ro5SOe+g+oB1I+E7lA=",
+  "Hash": "7c4IZIFIj0ISx1OLbeHX3wpyFwXH0UiFjCNX3a5RZqM=",
   "Source": "UTMShmotki.API",
   "BasePath": "_content/UTMShmotki.API",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "UTMShmotki.API\\wwwroot",
+      "Source": "UTMShmotki.API",
+      "ContentRoot": "C:\\Users\\tenti\\Desktop\\UTMShmotki_App\\UTMShmotki\\wwwroot\\",
+      "BasePath": "_content/UTMShmotki.API",
+      "Pattern": "**"
+    }
+  ],
   "Assets": []
 }

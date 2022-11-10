@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "r5M7WTJEE1WBh2/6LKfr4kweohkJRBzoeIW2EE/a5q51zqL81KejG8L/LhbmErfrPEjtim8E1yLcZIcZGf/qgw==",
+  "dgSpecHash": "OT4HB7nPULhq1bTwA8R75zmubVEJIOblygE94rK35xUmdMKeKXehV1wFdDHK3x7zvPyZKQmAxWlwF4Y5dUiDWg==",
   "success": true,
   "projectFilePath": "C:\\Users\\tenti\\Desktop\\UTMShmotki_App\\UTMShmotki.Application\\UTMShmotki.Application.csproj",
   "expectedPackageFiles": [
@@ -9,10 +9,12 @@
     "C:\\Users\\tenti\\.nuget\\packages\\mediatr\\11.0.0\\mediatr.11.0.0.nupkg.sha512",
     "C:\\Users\\tenti\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512",
     "C:\\Users\\tenti\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\11.0.0\\mediatr.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
+    "C:\\Users\\tenti\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.17\\microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512",
     "C:\\Users\\tenti\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\tenti\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\tenti\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",
     "C:\\Users\\tenti\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
+    "C:\\Users\\tenti\\.nuget\\packages\\system.io.pipelines\\5.0.2\\system.io.pipelines.5.0.2.nupkg.sha512",
     "C:\\Users\\tenti\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
   ],
   "logs": []

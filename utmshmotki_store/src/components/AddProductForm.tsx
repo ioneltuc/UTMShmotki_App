@@ -4,11 +4,13 @@ import { yupResolver } from "@hookform/resolvers/yup"
 import { postProduct } from "../services/productService";
 import { Button } from "@mui/material";
 import AddIcon from '@mui/icons-material/Add';
+import { useNavigate } from "react-router-dom";
 
 type FormTypes = {
     name: string;
     description: string;
-    price: number
+    price: number;
+    imageName: string;
 }
 
 const schema = yup.object({
@@ -18,13 +20,15 @@ const schema = yup.object({
 })
 
 function AddProductForm(){
-
+    
+    const navigate = useNavigate();
     const {register, handleSubmit, formState:{errors}} = useForm<FormTypes>({
         resolver: yupResolver(schema)
     })
 
     const onSubmit = async (values: FormTypes) => {
         await postProduct(values);
+        navigate('/', {replace: true})
     }
 
     return(
@@ -48,7 +52,7 @@ function AddProductForm(){
                 {errors.price && <span className="form-error">{errors.price.message}</span>}
             </div>
 
-            <Button type="submit" variant="outlined" startIcon={<AddIcon/>} id="add-submit-product-btn">
+            <Button type="submit" variant="outlined" startIcon={<AddIcon/>} id="submit-add-product-btn">
                 <span className="product-btn-text">Add</span>
             </Button>
         </form>

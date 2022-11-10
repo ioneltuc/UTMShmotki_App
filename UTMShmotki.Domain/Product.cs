@@ -1,4 +1,7 @@
-﻿namespace UTMShmotki.Domain
+﻿using Microsoft.AspNetCore.Http;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace UTMShmotki.Domain
 {
     public class Product : Entity
     {
