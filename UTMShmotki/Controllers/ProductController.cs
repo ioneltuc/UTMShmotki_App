@@ -10,7 +10,6 @@ namespace UTMShmotki.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
     public class ProductController : ControllerBase
     {
         private readonly IMediator _mediator;
@@ -42,6 +41,7 @@ namespace UTMShmotki.API.Controllers
             return productPaginatedDto.ToList();
         }
 
+        [Authorize]
         [HttpPost]
         public async Task<ProductDto> CreateProduct(CreateProductCommand product)
         {
@@ -49,6 +49,7 @@ namespace UTMShmotki.API.Controllers
             return productDto;
         }
 
+        [Authorize]
         [HttpPut("{id}")]
         public async Task UpdateProduct(int id, UpdateProductCommand command)
         {
@@ -56,6 +57,7 @@ namespace UTMShmotki.API.Controllers
             await _mediator.Send(command);
         }
 
+        [Authorize]
         [HttpDelete("{id}")]
         public async Task DeleteProduct(int id)
         {

@@ -2,6 +2,7 @@
 using UTMShmotki.Application.App.Products.Commands;
 using UTMShmotki.Application.App.Products.Dtos;
 using UTMShmotki.Application.App.Products.Queries;
+using UTMShmotki.Application.App.User.Dtos;
 using UTMShmotki.Domain;
 
 namespace UTMShmotki.Application
@@ -15,6 +16,8 @@ namespace UTMShmotki.Application
             CreateMap<Product, UpdateProductCommand>().ReverseMap();
             CreateMap<Product, ProductListDto>().ReverseMap();
             CreateMap<Product, ProductPaginatedDto>().ReverseMap();
+
+            CreateMap<UserInfo, LoginDto>().ReverseMap();
         }
     }
 }

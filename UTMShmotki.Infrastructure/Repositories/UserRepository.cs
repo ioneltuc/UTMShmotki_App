@@ -43,7 +43,7 @@ namespace UTMShmotki.Infrastructure.Repositories
                         _configuration["Jwt:Issuer"],
                         _configuration["Jwt:Audience"],
                         claims,
-                        expires: DateTime.Now.AddMinutes(20),
+                        expires: DateTime.Now.AddMinutes(30),
                         signingCredentials: signIn);
 
                     return new JwtSecurityTokenHandler().WriteToken(token);
