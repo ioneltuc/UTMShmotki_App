@@ -159,3 +159,4 @@ C:\Users\tenti\Desktop\UTMShmotki_App\UTMShmotki\bin\Debug\net6.0\System.Memory.
 C:\Users\tenti\Desktop\UTMShmotki_App\UTMShmotki\bin\Debug\net6.0\System.Text.Encodings.Web.dll
 C:\Users\tenti\Desktop\UTMShmotki_App\UTMShmotki\bin\Debug\net6.0\System.Text.Json.dll
 C:\Users\tenti\Desktop\UTMShmotki_App\UTMShmotki\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
+C:\Users\tenti\Desktop\UTMShmotki_App\UTMShmotki\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using UTMShmotki.Application.App.Products;
 using UTMShmotki.Application.App.Products.Commands;
@@ -9,6 +10,7 @@ namespace UTMShmotki.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class ProductController : ControllerBase
     {
         private readonly IMediator _mediator;
@@ -21,7 +23,7 @@ namespace UTMShmotki.API.Controllers
         [HttpGet("{id}")]
         public async Task<ProductDto> GetProduct(int id)
         {
-            var productDto = await _mediator.Send(new GetProductByIdQuery() { ProductId = id });   
+            var productDto = await _mediator.Send(new GetProductByIdQuery() { ProductId = id });
 
             return productDto;
         }

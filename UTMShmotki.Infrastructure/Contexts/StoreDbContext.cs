@@ -15,6 +15,7 @@ namespace UTMShmotki.Infrastructure.Contexts
         public DbSet<Address> Addresses { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<UserInfo> Users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -22,6 +23,7 @@ namespace UTMShmotki.Infrastructure.Contexts
             modelBuilder.ApplyConfiguration(new CustomerConfig());
             modelBuilder.ApplyConfiguration(new OrderConfig());
             modelBuilder.ApplyConfiguration(new AddressConfig());
+            modelBuilder.ApplyConfiguration(new UserConfig());
         }
     }
 }

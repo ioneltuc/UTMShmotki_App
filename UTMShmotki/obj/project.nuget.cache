@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "7QTqkOzb1JU7zHw0g5O2kRlfyuvzTAa1pFIakiMDfsEaqsP4IWLP2XketFtFztUNdNW7HlQUUVFu0+1btMeQpA==",
+  "dgSpecHash": "pNV0e+BFdxZC5nW58sZpJVOBP64lh679EPlkg7nF3vz24l4Till20fkftmEI2eQoVf+Rx1NcBa9irTCsaEmaUg==",
   "success": true,
   "projectFilePath": "C:\\Users\\tenti\\Desktop\\UTMShmotki_App\\UTMShmotki\\UTMShmotki.API.csproj",
   "expectedPackageFiles": [
@@ -12,6 +12,7 @@
     "C:\\Users\\tenti\\.nuget\\packages\\mediatr\\11.0.0\\mediatr.11.0.0.nupkg.sha512",
     "C:\\Users\\tenti\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512",
     "C:\\Users\\tenti\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\11.0.0\\mediatr.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
+    "C:\\Users\\tenti\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.11\\microsoft.aspnetcore.authentication.jwtbearer.6.0.11.nupkg.sha512",
     "C:\\Users\\tenti\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.17\\microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512",
     "C:\\Users\\tenti\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\tenti\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
