@@ -13,6 +13,7 @@ namespace UTMShmotki.Infrastructure.Repositories
     {
         public IConfiguration _configuration;
         private readonly StoreDbContext _storeDbContext;
+
         public UserRepository(IConfiguration configuration, StoreDbContext storeDbContext)
         {
             _configuration = configuration;
@@ -21,9 +22,9 @@ namespace UTMShmotki.Infrastructure.Repositories
 
         public string GetToken(UserInfo userInfo)
         {
-            if(userInfo != null)
+            if (userInfo != null)
             {
-                var user = _storeDbContext.Users.Where(u => u.UserName.Equals(userInfo.UserName) && 
+                var user = _storeDbContext.Users.Where(u => u.UserName.Equals(userInfo.UserName) &&
                     u.Password.Equals(userInfo.Password)).SingleOrDefault();
 
                 if (user != null)
@@ -31,7 +32,7 @@ namespace UTMShmotki.Infrastructure.Repositories
                     var claims = new[]
                     {
                         new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                        new Claim(JwtRegisteredClaimNames.Iat, DateTime.UtcNow.ToString()),
+                        new Claim(JwtRegisteredClaimNames.Iat, DateTime.Now.ToString()),
                         new Claim("Id", user.Id.ToString()),
                         new Claim("UserName", user.UserName),
                         new Claim("Email", user.Email),
@@ -51,6 +52,26 @@ namespace UTMShmotki.Infrastructure.Repositories
             }
 
             return null;
+        }
+
+        public JwtSecurityToken VerifyUserLoggedIn(string jwt)
+        {
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var key = Encoding.ASCII.GetBytes(_configuration["Jwt:Key"]);
+            tokenHandler.ValidateToken(jwt, new TokenValidationParameters
+            {
+                IssuerSigningKey = new SymmetricSecurityKey(key),
+                ValidateIssuerSigningKey = true,
+                ValidateIssuer = false,
+                ValidateAudience = false,
+            }, out SecurityToken validatedToken);
+
+            return (JwtSecurityToken)validatedToken;
+        }
+
+        public UserInfo GetById(int id)
+        {
+            return _storeDbContext.Users.FirstOrDefault(u => u.Id == id);
         }
     }
 }

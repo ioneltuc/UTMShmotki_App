@@ -13,6 +13,9 @@ function Header(){
                     <Link to="/about" className='nav-btn'>
                         About
                     </Link>
+                    <Link to="/login" className='nav-btn'>
+                        LogIn
+                    </Link>
                 </nav>
             </header>
 

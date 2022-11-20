@@ -33,7 +33,6 @@ function AddProductForm(){
 
     return(
         <form onSubmit={handleSubmit(onSubmit)} className="product-form">
-
             <div>
                 <label htmlFor="productName">Product name</label>
                 <input id="productName" type="text" {...register("name")}/>
