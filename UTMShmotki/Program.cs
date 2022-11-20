@@ -90,10 +90,6 @@ app.UseHttpsRedirection();
 
 app.UseAuthentication();
 app.UseAuthorization();
-app.MapPost("/token", (UserInfo userInfo, IUserRepository service) =>
-{
-    return service.GetToken(userInfo);
-});
 
 app.MapControllers();
 
