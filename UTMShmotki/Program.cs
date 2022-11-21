@@ -1,3 +1,5 @@
+using IdentityServer4;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using UTMShmotki.Application;
 using UTMShmotki.Application.Interfaces.Repositories;
@@ -7,6 +9,13 @@ using UTMShmotki.Infrastructure.Repositories;
 var builder = WebApplication.CreateBuilder(args);
 
 ConfigurationManager configuration = builder.Configuration;
+
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
+{
+    options.Cookie.SameSite = SameSiteMode.None;
+    options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+    options.Cookie.IsEssential = true;
+});
 
 builder.Services.AddCors(options =>
 {
@@ -42,6 +51,12 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCookiePolicy(new CookiePolicyOptions
+{
+    MinimumSameSitePolicy = SameSiteMode.None,
+    Secure = CookieSecurePolicy.Always,
+});
 
 app.UseAuthentication();
 app.UseAuthorization();

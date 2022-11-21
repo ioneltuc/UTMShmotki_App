@@ -160,3 +160,8 @@ C:\Users\tenti\Desktop\UTMShmotki_App\UTMShmotki\bin\Debug\net6.0\System.Text.En
 C:\Users\tenti\Desktop\UTMShmotki_App\UTMShmotki\bin\Debug\net6.0\System.Text.Json.dll
 C:\Users\tenti\Desktop\UTMShmotki_App\UTMShmotki\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
 C:\Users\tenti\Desktop\UTMShmotki_App\UTMShmotki\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\tenti\Desktop\UTMShmotki_App\UTMShmotki\bin\Debug\net6.0\IdentityModel.dll
+C:\Users\tenti\Desktop\UTMShmotki_App\UTMShmotki\bin\Debug\net6.0\IdentityServer4.dll
+C:\Users\tenti\Desktop\UTMShmotki_App\UTMShmotki\bin\Debug\net6.0\IdentityServer4.Storage.dll
+C:\Users\tenti\Desktop\UTMShmotki_App\UTMShmotki\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.OpenIdConnect.dll
+C:\Users\tenti\Desktop\UTMShmotki_App\UTMShmotki\bin\Debug\net6.0\Newtonsoft.Json.dll

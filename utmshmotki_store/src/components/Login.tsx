@@ -6,16 +6,17 @@ import { login } from "../services/authService";
 import { useNavigate } from "react-router-dom";
 
 type FormTypes = {
-    username: string;
+    userName: string;
     password: string;
 }
 
 const schema = yup.object({
-    username: yup.string().required("Username is required"),
+    userName: yup.string().required("Username is required"),
     password: yup.string().required("Password is required").min(8, "Password is too short"),
 })
 
 function Login(){
+    
     const navigate = useNavigate();
     const {register, handleSubmit, formState:{errors}} = useForm<FormTypes>({
         resolver: yupResolver(schema)
@@ -23,7 +24,7 @@ function Login(){
 
     const onSubmit = async (values: FormTypes) => {
         await login(values)
-        navigate('/', {replace: true})
+        //navigate('/', {replace: true})
     }
 
     return(
@@ -31,8 +32,8 @@ function Login(){
             <h1>Please sign in</h1>
 
             <label htmlFor="username">Username</label>
-            <input id="username" type="text" {...register("username")}></input>
-            {errors.username && <span className="form-error">{errors.username.message}</span>}
+            <input id="username" type="text" {...register("userName")}></input>
+            {errors.userName && <span className="form-error">{errors.userName.message}</span>}
 
             <label htmlFor="password">Password</label>
             <input id="password" type="password"{...register("password")}></input>
