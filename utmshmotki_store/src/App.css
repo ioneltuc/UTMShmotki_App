@@ -38,6 +38,16 @@ nav {
   font-weight: bold;
 }
 
+.credentials-header {
+  position: absolute;
+  right: 50px;
+  display: flex;
+  gap: 50px;
+}
+
+#username {
+}
+
 #add-product-btn,
 #update-product-btn,
 #delete-product-btn,
@@ -54,6 +64,11 @@ nav {
   gap: 30px;
 }
 
+.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: rgb(9, 121, 105) !important;
+  color: rgb(9, 121, 105);
+}
+
 .products-container {
   margin: 30px;
   display: flex;
@@ -67,6 +82,14 @@ nav {
   padding: 10px 30px;
   color: rgb(0, 0, 0);
   text-decoration: none;
+  width: 500px;
+}
+
+.product-description {
+  width: 450px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .product-form {

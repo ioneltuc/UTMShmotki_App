@@ -1,4 +1,3 @@
-using IdentityServer4;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using UTMShmotki.Application;

@@ -1,3 +1,5 @@
+import { environment } from "../environments/environment";
+
 type UserInfo = {
     userName: string;
     password: string;
@@ -5,12 +7,11 @@ type UserInfo = {
 
 export async function login(userInfo: UserInfo) {
     try{
-        const response = await fetch("https://localhost:7061/api/login", {
+        const response = await fetch(`${environment.apiUrl}login`, {
             method: "POST",
             credentials: "include",
             body: JSON.stringify(userInfo),
             headers: {
-                "accept": "*/*",
                 "Content-Type": "application/json",
             },   
         })
@@ -26,7 +27,7 @@ export async function login(userInfo: UserInfo) {
 
 export async function getUser() {
     try{
-        const response = await fetch("https://localhost:7061/api/user", {
+        const response = await fetch(`${environment.apiUrl}user`, {
             headers: {
                 "Content-Type": "application/json",
             },
@@ -40,4 +41,23 @@ export async function getUser() {
     }catch(e){
         return[]
     }   
+}
+
+export async function logout() {
+    try{
+        const response = await fetch(`${environment.apiUrl}logout`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            credentials: "include"
+        })
+        if(!response.ok){
+            throw new Error("Something went wrong")
+        }
+
+        return await response.json()
+    }catch(e){
+        return[]
+    }  
 }

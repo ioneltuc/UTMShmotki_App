@@ -1,3 +1,5 @@
+import { environment } from "../environments/environment";
+
 type Product = {
     name: string;
     description: string;
@@ -6,7 +8,7 @@ type Product = {
 
 export async function getProducts(pageNumber: number, pageSize: number, searchString: string, sortType: string){
     try{
-        const response = await fetch(`https://localhost:7061/api/product/?pagenumber=${pageNumber}&pagesize=${pageSize}` +
+        const response = await fetch(`${environment.apiUrl}product/?pagenumber=${pageNumber}&pagesize=${pageSize}` +
             `${searchString === '' ? '' : '&search=' + searchString}${sortType === '' ? '' : '&sort=' + sortType}`);
         if(!response.ok){
             throw new Error("Something went wrong")
@@ -20,7 +22,7 @@ export async function getProducts(pageNumber: number, pageSize: number, searchSt
 
 export async function getProductById(id: string | undefined){
     try{
-        const response = await fetch("https://localhost:7061/api/product/" + id);
+        const response = await fetch(`${environment.apiUrl}product/` + id);
         if(!response.ok){
             throw new Error("Something went wrong")
         }
@@ -33,7 +35,7 @@ export async function getProductById(id: string | undefined){
 
 export async function postProduct(product: Product){
     try{
-        const response = await fetch("https://localhost:7061/api/product", {
+        const response = await fetch(`${environment.apiUrl}product`, {
             method: "POST",
             body: JSON.stringify(product),
             headers: {
@@ -53,7 +55,7 @@ export async function postProduct(product: Product){
 
 export async function updateProductById(id: string | undefined, product: Product){
     try{
-        const response = await fetch("https://localhost:7061/api/product/" + id, {
+        const response = await fetch(`${environment.apiUrl}product/` + id, {
             method: "PUT",
             body: JSON.stringify(product),
             headers: {
@@ -73,7 +75,7 @@ export async function updateProductById(id: string | undefined, product: Product
 
 export async function deleteProductById(id: string | undefined){
     try{
-        const response = await fetch("https://localhost:7061/api/product/" + id, {
+        const response = await fetch(`${environment.apiUrl}product/` + id, {
             method: "DELETE",
             headers: {
                 "accept": "*/*",

@@ -24,7 +24,7 @@ function Login(){
 
     const onSubmit = async (values: FormTypes) => {
         await login(values)
-        //navigate('/', {replace: true})
+        navigate('/', {replace: true})
     }
 
     return(

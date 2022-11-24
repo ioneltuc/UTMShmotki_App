@@ -15,7 +15,7 @@ type FormTypes = {
 
 const schema = yup.object({
     name: yup.string().required("Product name is required").max(50, "Name is too long"),
-    description: yup.string().max(200, "Description is too long"),
+    description: yup.string().max(255, "Description is too long"),
     price: yup.number().transform(value => (isNaN(value) ? 0 : value)).required("Product price is required").min(0, "Price can't be negative")
 })
 

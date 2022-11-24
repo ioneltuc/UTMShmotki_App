@@ -22,6 +22,7 @@ const[sortType, setSortType] = useState('')
 
 useEffect(() => {
     fetchData();
+    getPaginationCount(5, '')
 }, [])
 
 useEffect(() => {
@@ -33,16 +34,23 @@ const fetchData = async () => {
     setItem(data)
 }
 
+const getPaginationCount = async (size: number, search: string) => {
+    const allProducts = await getProducts(1, 1000, search, sortType);
+    setPageCount(Math.ceil(allProducts.length / size))
+}
+
 const handleChangePageNumber = (e: any, page: number) => {
     setPageNumber(page)
 }
 
 const handleChangePageSize = (e: any) => {
     setPageSize(e.target.value)
+    getPaginationCount(e.target.value, searchString)
 }
 
 const handleChangeSearchString = (e: any) => {
     setSearchString(e.target.value)
+    getPaginationCount(pageSize, e.target.value)
 }
 
 const handleChangeSortType = (e: SelectChangeEvent) => {
@@ -92,8 +100,8 @@ const handleChangeSortType = (e: SelectChangeEvent) => {
                         return(
                             <Link key={p.id} to={{pathname:`/${p.id}`}} className="single-product">
                                 <h2>{p.name}</h2>
-                                <p><strong>Description: </strong>{p.description}</p>
-                                <p><strong>Price: </strong>${p.price}</p>
+                                <p className="product-description"><strong>Description: </strong>{p.description}</p>
+                                <p><strong>Price: </strong>{p.price} MDL</p>
                             </Link> 
                         )
                     })}

@@ -24,8 +24,9 @@ namespace UTMShmotki.Infrastructure.Repositories
         {
             if (userInfo != null)
             {
-                var user = _storeDbContext.Users.Where(u => u.UserName.Equals(userInfo.UserName) &&
-                    u.Password.Equals(userInfo.Password)).SingleOrDefault();
+                var user = _storeDbContext.Users
+                    .Where(u => u.UserName == userInfo.UserName).ToList()
+                    .Where(u => u.Password == userInfo.Password).FirstOrDefault();
 
                 if (user != null)
                 {
