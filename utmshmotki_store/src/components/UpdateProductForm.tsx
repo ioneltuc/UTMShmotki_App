@@ -63,7 +63,7 @@ function UpdateProductForm(){
 
             <div>
                 <label htmlFor="productDescription">Product description</label>
-                <input id="productDescription" type="text" {...register("description")}/>    
+                <textarea id="productDescription" {...register("description")}></textarea>
                 {errors.description && <span className="form-error">{errors.description.message}</span>}
             </div>
 
