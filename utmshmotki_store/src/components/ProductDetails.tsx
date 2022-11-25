@@ -34,10 +34,10 @@ function ProductDetails(){
     }
 
     return(
-        <div>
-            <h3>{item?.name}</h3>
-            <h4>{item?.description}</h4>
-            <h4>{item?.price}</h4>
+        <div className="product-details">
+            <h1>{item?.name}</h1>
+            <h3 className="single-product-description">{item?.description}</h3>
+            <h3 className="single-product-price">{item?.price} MDL</h3>
             <Button variant="outlined" startIcon={<EditIcon fontSize="large"/>} id="update-product-btn">
                 <Link to={`/update/${id}`} className="product-btn-text">
                     Update product

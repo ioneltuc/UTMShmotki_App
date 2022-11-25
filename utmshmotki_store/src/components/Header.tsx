@@ -27,9 +27,9 @@ function Header(){
         <>
             <header>
                 <nav>
-                    <Link to="/" className='nav-btn'>
-                        <HomeIcon sx={{ fontSize: 30 }} />
-                        Home
+                    <Link to="/" className='nav-btn'> 
+                        <HomeIcon sx={{ fontSize: 30 }} />                    
+                        Home   
                     </Link>
                     <Link to="/about" className='nav-btn'>
                         About
