@@ -96,3 +96,35 @@ export async function deleteProductById(id: string | undefined){
         return [];
     }
 }
+
+export async function getProductImage(productId: string | undefined) {
+    try{
+        const response = await fetch(`${environment.apiUrl}product/image/${productId}`)
+        if(!response.ok){
+            throw new Error("Something went wrong")
+        }
+
+        return await response.blob()
+    }catch(e){
+        return new Blob()
+    }  
+}
+
+export async function postProductImage(productId: string | undefined, formData: FormData) {
+    try{
+        const response = await fetch(`${environment.apiUrl}product/UploadImage?productId=${productId}`, {
+            method: "POST",
+            headers: {
+                "accept" : "text/plain",
+            },
+            body: formData
+        })
+        if(!response.ok){
+            throw new Error("Something went wrong")
+        }
+
+        return await response.json()
+    }catch(e){
+        return [];
+    }  
+}

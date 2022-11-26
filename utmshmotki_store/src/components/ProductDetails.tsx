@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { deleteProductById, getProductById } from "../services/productService";
+import { deleteProductById, getProductById, getProductImage } from "../services/productService";
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import { Button } from "@mui/material";
+import placeholder from '../assets/images/product_placeholder.png'
 
 type Product = {
     id: number,
@@ -15,6 +16,7 @@ type Product = {
 function ProductDetails(){
 
     const[item, setItem] = useState<Product>()
+    const[imageSrc, setImageSrc] = useState('');
     const { id } = useParams();
     const navigate = useNavigate();
 
@@ -24,7 +26,9 @@ function ProductDetails(){
 
     const fetchData = async () => {
         const data = await getProductById(id);
+        const productImage = await getProductImage(id)
         setItem(data)
+        setImageSrc(URL.createObjectURL(productImage))
     }
 
     const deleteProduct = async () => {
@@ -38,6 +42,7 @@ function ProductDetails(){
     return(
         <div className="product-details">
             <h1>{item?.name}</h1>
+            <img id="product-image" src={imageSrc} width="500px"/>
             <h3 className="single-product-description">{item?.description}</h3>
             <h3 className="single-product-price">{item?.price} MDL</h3>
             <Button variant="outlined" startIcon={<EditIcon fontSize="large"/>} id="update-product-btn">

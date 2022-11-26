@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "7c4IZIFIj0ISx1OLbeHX3wpyFwXH0UiFjCNX3a5RZqM=",
+  "Hash": "vO0sC1JXdp4s1OCu87Kq87l7aAEQNSkJRZmj9ov9Zcs=",
   "Source": "UTMShmotki.API",
   "BasePath": "_content/UTMShmotki.API",
   "Mode": "Default",
@@ -15,5 +15,23 @@
       "Pattern": "**"
     }
   ],
-  "Assets": []
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\tenti\\Desktop\\UTMShmotki_App\\UTMShmotki\\wwwroot\\Uploads\\Products\\2017.png",
+      "SourceId": "UTMShmotki.API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\tenti\\Desktop\\UTMShmotki_App\\UTMShmotki\\wwwroot\\",
+      "BasePath": "_content/UTMShmotki.API",
+      "RelativePath": "Uploads/Products/2017.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Uploads\\Products\\2017.png"
+    }
+  ]
 }

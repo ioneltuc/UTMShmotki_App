@@ -10,7 +10,6 @@ type FormTypes = {
     name: string;
     description: string;
     price: number;
-    imageName: string;
 }
 
 const schema = yup.object({

@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form"
 import * as yup from "yup"
 import { yupResolver } from "@hookform/resolvers/yup"
-import { getProductById, updateProductById } from "../services/productService";
+import { getProductById, postProductImage, updateProductById } from "../services/productService";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Button } from "@mui/material";
@@ -49,6 +49,12 @@ function UpdateProductForm(){
 
     const onSubmit = async (values: FormTypes) => {
         await updateProductById(id, values);
+        const fileInput = document.querySelector('#productImage') as HTMLInputElement
+        let formData = new FormData()
+        if(fileInput.files != null) {
+            formData.append("formFile", fileInput.files[0])
+            await postProductImage(id, formData)
+        }
         navigate({pathname:`/${id}`}, {replace: true})
     }
 
@@ -73,6 +79,11 @@ function UpdateProductForm(){
                 {errors.price && <span className="form-error">{errors.price.message}</span>}
             </div>
 
+            <div>
+                <label htmlFor="productImage">Product image</label>
+                <input id="productImage" type="file" accept="image/png" />
+            </div>
+            
             <Button type="submit" variant="outlined" startIcon={<EditIcon/>} id="submit-update-product-btn">
                 <span className="product-btn-text">Update</span>
             </Button>
