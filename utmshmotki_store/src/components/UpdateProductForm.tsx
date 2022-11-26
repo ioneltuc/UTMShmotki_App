@@ -49,7 +49,7 @@ function UpdateProductForm(){
 
     const onSubmit = async (values: FormTypes) => {
         await updateProductById(id, values);
-        navigate('/', {replace: true})
+        navigate({pathname:`/${id}`}, {replace: true})
     }
 
     return(

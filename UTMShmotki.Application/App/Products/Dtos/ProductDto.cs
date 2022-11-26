@@ -1,4 +1,6 @@
-﻿namespace UTMShmotki.Application.App.Products.Dtos
+﻿using Microsoft.AspNetCore.Http;
+
+namespace UTMShmotki.Application.App.Products.Dtos
 {
     public class ProductDto
     {

@@ -54,9 +54,9 @@ nav {
 
 #add-product-btn,
 #update-product-btn,
-#delete-product-btn,
 #submit-update-product-btn,
-#submit-add-product-btn {
+#submit-add-product-btn,
+#signin-btn {
   color: rgb(0, 0, 0);
   border: rgb(0, 0, 0) 1px solid;
   margin: 10px;
@@ -64,11 +64,22 @@ nav {
 
 #add-product-btn:hover,
 #update-product-btn:hover,
-#delete-product-btn:hover,
 #submit-update-product-btn:hover,
-#submit-add-product-btn:hover {
+#submit-add-product-btn:hover,
+#signin-btn:hover {
   background-color: rgb(9, 121, 105, 0.1);
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+#delete-product-btn {
+  color: red;
+  border: red 1px solid;
+  margin: 10px;
+}
+
+#delete-product-btn:hover {
+  background-color: rgba(255, 3, 3, 0.1);
+  box-shadow: rgba(241, 11, 11, 0.35) 0px 5px 15px;
 }
 
 .filtering-form {
@@ -96,12 +107,11 @@ nav {
   color: rgb(0, 0, 0);
   text-decoration: none;
   width: 500px;
+  transition: 0.2s ease-in-out;
 }
 
 .single-product:hover {
   background-color: rgb(9, 121, 105, 0.1);
-  transition: 0.1s ease-in-out;
-  letter-spacing: 0.5px;
   box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
 }
 
@@ -150,10 +160,21 @@ nav {
   font-size: 18px;
 }
 
+#productName {
+  padding: 5px;
+}
+
 #productDescription {
   font-size: 18px;
   height: 200px;
   width: 300px;
+  resize: none;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+#productPrice {
+  padding: 5px;
 }
 
 .form-error {
@@ -161,4 +182,32 @@ nav {
   color: red;
   display: block;
   text-align: center;
+}
+
+.login-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 30px;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.login-form h3 {
+  font-size: 32px;
+}
+
+.login-form label {
+  padding-top: 30px;
+}
+
+.login-form input {
+  height: 30px;
+  width: 300px;
+  margin: 10px auto;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid black;
+  font-size: 18px;
 }

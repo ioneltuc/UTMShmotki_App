@@ -42,6 +42,7 @@ namespace UTMShmotki.API.Controllers
 
             return Ok(new
             {
+                jwt,
                 message = "Success"
             });
         }

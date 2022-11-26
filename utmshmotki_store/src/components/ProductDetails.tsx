@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { deleteProductById, getProductById } from "../services/productService";
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
@@ -16,6 +16,7 @@ function ProductDetails(){
 
     const[item, setItem] = useState<Product>()
     const { id } = useParams();
+    const navigate = useNavigate();
 
     useEffect(() => {
         fetchData();
@@ -27,10 +28,11 @@ function ProductDetails(){
     }
 
     const deleteProduct = async () => {
-        await deleteProductById(id)
-        setTimeout(() => {
-            return
-        },500)
+        const toDelete:boolean = window.confirm("Delete product with id " + id + "?")
+        if(toDelete) {
+            await deleteProductById(id)
+            navigate('/', {replace: true})
+        }
     }
 
     return(
@@ -43,10 +45,8 @@ function ProductDetails(){
                     Update product
                 </Link>
             </Button>
-            <Button variant="outlined" startIcon={<DeleteIcon fontSize="large" />} id="delete-product-btn">
-                <Link to="/" onClick={deleteProduct} className="product-btn-text">
-                    Delete product
-                </Link>
+            <Button id="delete-product-btn" variant="outlined" startIcon={<DeleteIcon fontSize="large" />} onClick={() => deleteProduct()}>
+                Delete product
             </Button>
         </div>
     )

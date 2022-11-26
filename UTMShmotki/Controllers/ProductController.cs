@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using UTMShmotki.Application.App.Products;
 using UTMShmotki.Application.App.Products.Commands;
@@ -12,10 +13,12 @@ namespace UTMShmotki.API.Controllers
     public class ProductController : ControllerBase
     {
         private readonly IMediator _mediator;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public ProductController(IMediator mediator)
+        public ProductController(IMediator mediator, IWebHostEnvironment webHostEnvironment)
         {
             _mediator = mediator;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         [HttpGet("{id}")]

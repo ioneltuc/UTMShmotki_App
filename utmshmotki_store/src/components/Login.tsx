@@ -23,13 +23,13 @@ function Login(){
     })
 
     const onSubmit = async (values: FormTypes) => {
-        await login(values)
+        const response = await login(values)
         navigate('/', {replace: true})
     }
 
     return(
-        <form onSubmit={handleSubmit(onSubmit)}>
-            <h1>Please sign in</h1>
+        <form className="login-form" onSubmit={handleSubmit(onSubmit)}>
+            <h3>Please sign in</h3>
 
             <label htmlFor="username">Username</label>
             <input id="username" type="text" {...register("userName")}></input>
@@ -39,7 +39,7 @@ function Login(){
             <input id="password" type="password"{...register("password")}></input>
             {errors.password && <span className="form-error">{errors.password.message}</span>}
 
-            <Button type="submit">Sign In</Button>
+            <Button id="signin-btn" type="submit">Sign In</Button>
         </form>
     )
 }

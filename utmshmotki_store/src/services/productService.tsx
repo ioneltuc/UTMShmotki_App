@@ -9,7 +9,13 @@ type Product = {
 export async function getProducts(pageNumber: number, pageSize: number, searchString: string, sortType: string){
     try{
         const response = await fetch(`${environment.apiUrl}product/?pagenumber=${pageNumber}&pagesize=${pageSize}` +
-            `${searchString === '' ? '' : '&search=' + searchString}${sortType === '' ? '' : '&sort=' + sortType}`);
+            `${searchString === '' ? '' : '&search=' + searchString}${sortType === '' ? '' : '&sort=' + sortType}`, {
+            headers: {
+                "Authorization" : "Bearer " + 
+                ""
+            }
+        });
+
         if(!response.ok){
             throw new Error("Something went wrong")
         }
