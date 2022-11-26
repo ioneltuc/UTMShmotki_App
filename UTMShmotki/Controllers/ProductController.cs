@@ -5,6 +5,7 @@ using UTMShmotki.Application.App.Products;
 using UTMShmotki.Application.App.Products.Commands;
 using UTMShmotki.Application.App.Products.Dtos;
 using UTMShmotki.Application.App.Products.Queries;
+using UTMShmotki.Domain;
 
 namespace UTMShmotki.API.Controllers
 {
@@ -61,6 +62,52 @@ namespace UTMShmotki.API.Controllers
         public async Task DeleteProduct(int id)
         {
             await _mediator.Send(new DeleteProductCommand() { Id = id });
+        }
+
+        [HttpPost("UploadImage")]
+        public async Task<string> UploadImage([FromForm] FileUpload fileUpload, string productId)
+        {
+            try
+            {
+                if(fileUpload.formFile.Length > 0)
+                {
+                    var path = _webHostEnvironment.WebRootPath + "\\Uploads\\Products\\";
+                    var imagePath = path + fileUpload.formFile.FileName;
+                    if (!Directory.Exists(path))
+                    {
+                        Directory.CreateDirectory(path);
+                    }
+                    var newImagePath = imagePath.Replace(Path.GetFileName(imagePath), productId + ".png");
+                    using (FileStream fileStream = System.IO.File.Create(newImagePath))
+                    {
+                        await fileUpload.formFile.CopyToAsync(fileStream);
+                        fileStream.Flush();
+                        return "Upload Done";
+                    }
+                }
+                else
+                {
+                    return "Upload Failed";
+                }
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+
+        [HttpGet("image/{productId}")]
+        public async Task<IActionResult> GetImage([FromRoute] string productId)
+        {
+            var path = _webHostEnvironment.WebRootPath + "\\Uploads\\Products\\";
+            var filePath = path + productId + ".png";
+            if(System.IO.File.Exists(filePath))
+            {
+                byte[] imageBytes = await System.IO.File.ReadAllBytesAsync(filePath);
+                return File(imageBytes, "image/png");
+            }
+
+            return null;
         }
     }
 }
