@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { getProducts } from "../services/productService"
 import AddIcon from '@mui/icons-material/Add';
+import { getUser } from "../services/authService";
 
 type Product = {
     id: number,
@@ -13,57 +14,72 @@ type Product = {
 
 function Products(){
 
-const[item, setItem] = useState<Product[]>([])
-const[pageNumber, setPageNumber] = useState(1)
-const[pageSize, setPageSize] = useState(5)
-const[pageCount, setPageCount] = useState(5)
-const[searchString, setSearchString] = useState('')
-const[sortType, setSortType] = useState('')
+    const[item, setItem] = useState<Product[]>([])
+    const[pageNumber, setPageNumber] = useState(1)
+    const[pageSize, setPageSize] = useState(5)
+    const[pageCount, setPageCount] = useState(5)
+    const[searchString, setSearchString] = useState('')
+    const[sortType, setSortType] = useState('')
+    const [user, setUser] = useState('')
 
-useEffect(() => {
-    fetchData();
-    getPaginationCount(5, '')
-}, [])
+    useEffect(() => {
+        (
+            async () => {
+                const response = await getUser()
+                setUser(response.userName)
+            }
+        )()
+    }, [user])
+    
+    useEffect(() => {
+        fetchData();
+        getPaginationCount(5, '')
+    }, [])
 
-useEffect(() => {
-    fetchData();
-}, [pageNumber, pageSize, searchString, sortType])
+    useEffect(() => {
+        fetchData();
+    }, [pageNumber, pageSize, searchString, sortType])
 
-const fetchData = async () => {
-    const data = await getProducts(pageNumber, pageSize, searchString, sortType);
-    setItem(data)
-}
+    const fetchData = async () => {
+        const data = await getProducts(pageNumber, pageSize, searchString, sortType);
+        setItem(data)
+    }
 
-const getPaginationCount = async (size: number, search: string) => {
-    const allProducts = await getProducts(1, 1000, search, sortType);
-    setPageCount(Math.ceil(allProducts.length / size))
-}
+    const getPaginationCount = async (size: number, search: string) => {
+        const allProducts = await getProducts(1, 1000, search, sortType);
+        setPageCount(Math.ceil(allProducts.length / size))
+    }
 
-const handleChangePageNumber = (e: any, page: number) => {
-    setPageNumber(page)
-}
+    const handleChangePageNumber = (e: any, page: number) => {
+        setPageNumber(page)
+    }
 
-const handleChangePageSize = (e: any) => {
-    setPageSize(e.target.value)
-    getPaginationCount(e.target.value, searchString)
-}
+    const handleChangePageSize = (e: any) => {
+        setPageSize(e.target.value)
+        setPageNumber(1)
+        getPaginationCount(e.target.value, searchString)
+    }
 
-const handleChangeSearchString = (e: any) => {
-    setSearchString(e.target.value)
-    getPaginationCount(pageSize, e.target.value)
-}
+    const handleChangeSearchString = (e: any) => {
+        setSearchString(e.target.value)
+        getPaginationCount(pageSize, e.target.value)
+    }
 
-const handleChangeSortType = (e: SelectChangeEvent) => {
-    setSortType(e.target.value)
-}
+    const handleChangeSortType = (e: SelectChangeEvent) => {
+        setSortType(e.target.value)
+    }
 
     return(
         <div className="main-page">
-            <Button variant="outlined" startIcon={<AddIcon/>} id="add-product-btn">
-                <Link to="/add" className="product-btn-text">
-                    <span>Add a product</span>
-                </Link>
-            </Button>
+            { 
+                user 
+                &&
+                <Button variant="outlined" startIcon={<AddIcon/>} id="add-product-btn">
+                    <Link to="/add" className="product-btn-text">
+                        <span>Add a product</span>
+                    </Link>
+                </Button>
+            }
             <div className="filtering-form">
                 <TextField label="Search ..." value={searchString} onChange={handleChangeSearchString} />
                 <FormControl sx={{ minWidth: 120 }}>
@@ -96,7 +112,7 @@ const handleChangeSortType = (e: SelectChangeEvent) => {
             </div>
             <Box className="products-container">
                 <Stack spacing={3}>
-                    {item.map(p => {
+                    {item.map((p) => {
                         return(
                             <Link key={p.id} to={{pathname:`/${p.id}`}} className="single-product">
                                 <h2>{p.name}</h2>

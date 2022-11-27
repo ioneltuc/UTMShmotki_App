@@ -21,7 +21,7 @@ export async function login(userInfo: UserInfo) {
 
         return await response.json()
     }catch(e){
-        return[]
+        return []
     }   
 }
 
@@ -39,7 +39,7 @@ export async function getUser() {
 
         return await response.json()
     }catch(e){
-        return[]
+        return new Response()
     }   
 }
 

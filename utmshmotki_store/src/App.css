@@ -85,6 +85,7 @@ nav {
 .filtering-form {
   display: flex;
   justify-content: center;
+  margin-top: 30px;
   gap: 30px;
 }
 
@@ -131,6 +132,18 @@ nav {
   margin: 40px 300px;
 }
 
+#single-product-image {
+  margin-top: 20px;
+  border-radius: 5px;
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+}
+
+#single-product-image:hover {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  transition: 0.2s ease-in-out;
+}
+
 .single-product-price {
   margin-bottom: 50px;
 }
@@ -147,6 +160,7 @@ nav {
 .product-form label {
   display: block;
   text-align: center;
+  padding-bottom: 10px;
 }
 
 .product-form input {
@@ -171,6 +185,19 @@ nav {
   resize: none;
   border-radius: 5px;
   padding: 5px;
+}
+
+#productImage {
+  border: none;
+}
+
+#productImage::file-selector-button {
+  font-weight: bold;
+  font-size: 16px;
+  color: rgb(9, 121, 105);
+  padding: 5px;
+  border: 1px solid grey;
+  border-radius: 5px;
 }
 
 #productPrice {

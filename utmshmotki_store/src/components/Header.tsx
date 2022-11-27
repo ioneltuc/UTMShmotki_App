@@ -35,20 +35,20 @@ function Header(){
                         About
                     </Link>
                     <div className="credentials-header">
-                        {
-                            user 
-                            ? 
-                            <>
-                                <span id="username">{user}</span>
-                                <Link to="/login" onClick={logoutHandler} className='nav-btn'>
-                                    Logout
-                                </Link>
-                            </>
-                            :  
-                            <Link to="/login" className='nav-btn'>
-                                Login
+                    {
+                        user 
+                        ? 
+                        <>
+                            <span id="username">{user}</span>
+                            <Link to="/login" onClick={logoutHandler} className='nav-btn'>
+                                Logout
                             </Link>
-                        }
+                        </>
+                        :  
+                        <Link to="/login" className='nav-btn'>
+                            Login
+                        </Link>
+                    }
                     </div>
                 </nav>
             </header>

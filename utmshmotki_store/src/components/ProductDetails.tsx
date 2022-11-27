@@ -5,6 +5,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import { Button } from "@mui/material";
 import placeholder from '../assets/images/product_placeholder.png'
+import { getUser } from "../services/authService";
 
 type Product = {
     id: number,
@@ -19,7 +20,17 @@ function ProductDetails(){
     const[imageSrc, setImageSrc] = useState('');
     const { id } = useParams();
     const navigate = useNavigate();
+    const [user, setUser] = useState('')
 
+    useEffect(() => {
+        (
+            async () => {
+                const response = await getUser()
+                setUser(response.userName)
+            }
+        )()
+    }, [user])
+    
     useEffect(() => {
         fetchData();
     }, [])
@@ -42,17 +53,23 @@ function ProductDetails(){
     return(
         <div className="product-details">
             <h1>{item?.name}</h1>
-            <img id="product-image" src={imageSrc} width="500px"/>
+            <img id="single-product-image" src={imageSrc} width="500px" />
             <h3 className="single-product-description">{item?.description}</h3>
             <h3 className="single-product-price">{item?.price} MDL</h3>
-            <Button variant="outlined" startIcon={<EditIcon fontSize="large"/>} id="update-product-btn">
-                <Link to={`/update/${id}`} className="product-btn-text">
-                    Update product
-                </Link>
-            </Button>
-            <Button id="delete-product-btn" variant="outlined" startIcon={<DeleteIcon fontSize="large" />} onClick={() => deleteProduct()}>
-                Delete product
-            </Button>
+            { 
+                user
+                &&
+                <>
+                    <Button variant="outlined" startIcon={<EditIcon fontSize="large"/>} id="update-product-btn">
+                        <Link to={`/update/${id}`} className="product-btn-text">
+                            Update product
+                        </Link>
+                    </Button>
+                    <Button id="delete-product-btn" variant="outlined" startIcon={<DeleteIcon fontSize="large" />} onClick={() => deleteProduct()}>
+                        Delete product
+                    </Button>
+                </>
+            }
         </div>
     )
 }

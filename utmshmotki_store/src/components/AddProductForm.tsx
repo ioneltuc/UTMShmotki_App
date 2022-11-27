@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form"
 import * as yup from "yup"
 import { yupResolver } from "@hookform/resolvers/yup"
-import { postProduct } from "../services/productService";
+import { getProducts, postProduct, postProductImage } from "../services/productService";
 import { Button } from "@mui/material";
 import AddIcon from '@mui/icons-material/Add';
 import { useNavigate } from "react-router-dom";
@@ -27,6 +27,13 @@ function AddProductForm(){
 
     const onSubmit = async (values: FormTypes) => {
         await postProduct(values);
+        const lastProduct = await getProducts(1, 1, '', 'lastadded')
+        const fileInput = document.querySelector('#productImage') as HTMLInputElement
+        let formData = new FormData()
+        if(fileInput.files != null) {
+            formData.append("formFile", fileInput.files[0])
+            await postProductImage(lastProduct[0].id, formData)
+        }
         navigate('/', {replace: true})
     }
 
@@ -48,6 +55,11 @@ function AddProductForm(){
                 <label htmlFor="productPrice">Product price</label>
                 <input id="productPrice" type="number" step="0.01" {...register("price")}/>    
                 {errors.price && <span className="form-error">{errors.price.message}</span>}
+            </div>
+
+            <div>
+                <label htmlFor="productImage" >Product image</label>
+                <input id="productImage" type="file" accept="image/png" />
             </div>
 
             <Button type="submit" variant="outlined" startIcon={<AddIcon/>} id="submit-add-product-btn">

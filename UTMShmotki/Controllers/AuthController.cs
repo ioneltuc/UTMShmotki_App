@@ -37,12 +37,11 @@ namespace UTMShmotki.API.Controllers
 
             Response.Cookies.Append("jwt", jwt, new CookieOptions
             {
-                HttpOnly = true
+                HttpOnly = false
             });
 
             return Ok(new
             {
-                jwt,
                 message = "Success"
             });
         }

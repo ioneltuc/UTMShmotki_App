@@ -80,7 +80,7 @@ function UpdateProductForm(){
             </div>
 
             <div>
-                <label htmlFor="productImage">Product image</label>
+                <label htmlFor="productImage" >Product image</label>
                 <input id="productImage" type="file" accept="image/png" />
             </div>
             

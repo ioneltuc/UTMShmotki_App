@@ -10,10 +10,6 @@ export async function getProducts(pageNumber: number, pageSize: number, searchSt
     try{
         const response = await fetch(`${environment.apiUrl}product/?pagenumber=${pageNumber}&pagesize=${pageSize}` +
             `${searchString === '' ? '' : '&search=' + searchString}${sortType === '' ? '' : '&sort=' + sortType}`, {
-            headers: {
-                "Authorization" : "Bearer " + 
-                ""
-            }
         });
 
         if(!response.ok){
@@ -47,6 +43,8 @@ export async function postProduct(product: Product){
             headers: {
                 "accept": "text/plain",
                 "Content-Type": "application/json",
+                "Authorization" : "Bearer " + 
+                `${getCookie("jwt")}`
             },
         });
         if(!response.ok){
@@ -67,6 +65,8 @@ export async function updateProductById(id: string | undefined, product: Product
             headers: {
                 "accept": "*/*",
                 "Content-Type": "application/json",
+                "Authorization" : "Bearer " + 
+                `${getCookie("jwt")}`
             },
         });
         if(!response.ok){
@@ -85,6 +85,8 @@ export async function deleteProductById(id: string | undefined){
             method: "DELETE",
             headers: {
                 "accept": "*/*",
+                "Authorization" : "Bearer " + 
+                `${getCookie("jwt")}`
             },
         });
         if(!response.ok){
@@ -105,6 +107,7 @@ export async function getProductImage(productId: string | undefined) {
         }
 
         return await response.blob()
+
     }catch(e){
         return new Blob()
     }  
@@ -116,6 +119,8 @@ export async function postProductImage(productId: string | undefined, formData: 
             method: "POST",
             headers: {
                 "accept" : "text/plain",
+                "Authorization" : "Bearer " + 
+                `${getCookie("jwt")}`
             },
             body: formData
         })
@@ -127,4 +132,18 @@ export async function postProductImage(productId: string | undefined, formData: 
     }catch(e){
         return [];
     }  
+}
+
+function getCookie(name: string) {
+    const cookieArr = document.cookie.split(";");
+    
+    for(let i = 0; i < cookieArr.length; i++) {
+        let cookiePair = cookieArr[i].split("=");
+        
+        if(name == cookiePair[0].trim()) {
+            return decodeURIComponent(cookiePair[1]);
+        }
+    }
+    
+    return null;
 }

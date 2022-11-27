@@ -4,6 +4,7 @@ import * as yup from "yup"
 import { Button } from "@mui/material";
 import { login } from "../services/authService";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 type FormTypes = {
     userName: string;
@@ -21,10 +22,15 @@ function Login(){
     const {register, handleSubmit, formState:{errors}} = useForm<FormTypes>({
         resolver: yupResolver(schema)
     })
+    const[invalidCredentialsMsg, setInvalidCredentialsMsg] = useState('')
 
     const onSubmit = async (values: FormTypes) => {
         const response = await login(values)
-        navigate('/', {replace: true})
+        if(response.message === 'Success')
+        {
+            navigate('/', {replace: true})        
+        }
+        setInvalidCredentialsMsg("Invalid Credentials")
     }
 
     return(
@@ -38,7 +44,7 @@ function Login(){
             <label htmlFor="password">Password</label>
             <input id="password" type="password"{...register("password")}></input>
             {errors.password && <span className="form-error">{errors.password.message}</span>}
-
+            <span className="form-error">{invalidCredentialsMsg}</span>
             <Button id="signin-btn" type="submit">Sign In</Button>
         </form>
     )

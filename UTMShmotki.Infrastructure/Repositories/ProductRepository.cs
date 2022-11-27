@@ -32,6 +32,9 @@ namespace UTMShmotki.Infrastructure.Repositories
                 case "pricedesc":
                     result = result.OrderByDescending(p => p.Price);
                     break;
+                case "lastadded":
+                    result = result.OrderByDescending(p => p.Id);
+                    break;
             }
 
             result = result.Skip((pageNumber - 1) * pageSize).Take(pageSize);

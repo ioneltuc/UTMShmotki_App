@@ -11,6 +11,7 @@ namespace UTMShmotki.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class ProductController : ControllerBase
     {
         private readonly IMediator _mediator;
@@ -23,6 +24,7 @@ namespace UTMShmotki.API.Controllers
         }
 
         [HttpGet("{id}")]
+        [AllowAnonymous]
         public async Task<ProductDto> GetProduct(int id)
         {
             var productDto = await _mediator.Send(new GetProductByIdQuery() { ProductId = id });
@@ -31,6 +33,7 @@ namespace UTMShmotki.API.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public async Task<List<ProductPaginatedDto>> GetPaginatedProducts([FromQuery] PaginationQuery query)
         {
             var productPaginatedDto = await _mediator.Send(new GetProductsPaginatedQuery()
@@ -97,6 +100,7 @@ namespace UTMShmotki.API.Controllers
         }
 
         [HttpGet("image/{productId}")]
+        [AllowAnonymous]
         public async Task<IActionResult> GetImage([FromRoute] string productId)
         {
             var path = _webHostEnvironment.WebRootPath + "\\Uploads\\Products\\";
