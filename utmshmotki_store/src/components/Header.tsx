@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
-import { Link, Outlet, useNavigate } from 'react-router-dom'
+import { Link, Outlet } from 'react-router-dom'
 import { getUser, logout } from '../services/authService';
 import HomeIcon from './HomeIcon';
+import placeholder from '../assets/images/product_placeholder.png'
 
 function Header(){
 
-    const navigate = useNavigate();
     const [user, setUser] = useState('')
 
     useEffect(() => {
@@ -18,15 +18,18 @@ function Header(){
     }, [user])
 
     const logoutHandler = async () => {
-        await logout()
         setUser('')
-        navigate('/', {replace: true})
+        await logout()
     }
 
     return(   
         <>
             <header>
                 <nav>
+                    <Link to="/" className='header-logo nav-btn'>
+                        <img src={placeholder} width="45px"/>
+                        <h1>UTMShmotki</h1>
+                    </Link>
                     <Link to="/" className='nav-btn'> 
                         <HomeIcon sx={{ fontSize: 30 }} />                    
                         Home   
@@ -36,7 +39,7 @@ function Header(){
                     </Link>
                     <div className="credentials-header">
                     {
-                        user 
+                        user
                         ? 
                         <>
                             <span id="username">{user}</span>

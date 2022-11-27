@@ -26,11 +26,12 @@ function Login(){
 
     const onSubmit = async (values: FormTypes) => {
         const response = await login(values)
-        if(response.message === 'Success')
-        {
-            navigate('/', {replace: true})        
+        if(response.message === 'Success') {
+            navigate('/', {replace: true})
         }
-        setInvalidCredentialsMsg("Invalid Credentials")
+        else {
+            setInvalidCredentialsMsg("Invalid Credentials")
+        }
     }
 
     return(

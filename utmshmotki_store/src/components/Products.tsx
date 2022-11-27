@@ -20,7 +20,7 @@ function Products(){
     const[pageCount, setPageCount] = useState(5)
     const[searchString, setSearchString] = useState('')
     const[sortType, setSortType] = useState('')
-    const [user, setUser] = useState('')
+    const[user, setUser] = useState('')
 
     useEffect(() => {
         (
@@ -117,7 +117,7 @@ function Products(){
                             <Link key={p.id} to={{pathname:`/${p.id}`}} className="single-product">
                                 <h2>{p.name}</h2>
                                 <p className="product-description"><strong>Description: </strong>{p.description}</p>
-                                <p><strong>Price: </strong>{p.price} MDL</p>
+                                <strong>Price: <span className="product-price">{p.price} MDL</span></strong>
                             </Link> 
                         )
                     })}

@@ -24,6 +24,12 @@ nav {
   font-size: 24px;
 }
 
+.header-logo {
+  font-size: 16px;
+  position: absolute;
+  left: 50px;
+}
+
 .nav-btn {
   display: flex;
   align-items: center;
@@ -46,7 +52,7 @@ nav {
   position: absolute;
   right: 50px;
   display: flex;
-  gap: 50px;
+  gap: 40px;
 }
 
 #username {
@@ -117,10 +123,16 @@ nav {
 }
 
 .product-description {
+  margin-top: 3px;
+  margin-bottom: 3px;
   width: 450px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.product-price {
+  color: rgb(9, 121, 105);
 }
 
 .product-details {
@@ -130,11 +142,12 @@ nav {
 
 .single-product-description {
   margin: 40px 300px;
+  font-size: 18px;
 }
 
 #single-product-image {
   margin-top: 20px;
-  border-radius: 5px;
+  border-radius: 3px;
   box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
 }
 
@@ -146,6 +159,7 @@ nav {
 
 .single-product-price {
   margin-bottom: 50px;
+  color: rgb(9, 121, 105);
 }
 
 .product-form {
