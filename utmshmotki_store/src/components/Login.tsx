@@ -28,6 +28,7 @@ function Login(){
         const response = await login(values)
         if(response.message === 'Success') {
             navigate('/', {replace: true})
+            window.location.reload()
         }
         else {
             setInvalidCredentialsMsg("Invalid Credentials")

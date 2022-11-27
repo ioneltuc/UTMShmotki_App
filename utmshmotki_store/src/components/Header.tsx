@@ -3,6 +3,7 @@ import { Link, Outlet } from 'react-router-dom'
 import { getUser, logout } from '../services/authService';
 import HomeIcon from './HomeIcon';
 import placeholder from '../assets/images/product_placeholder.png'
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 function Header(){
 
@@ -42,7 +43,9 @@ function Header(){
                         user
                         ? 
                         <>
-                            <span id="username">{user}</span>
+                            <span id="username">{user}
+                                <AccountCircleIcon />
+                            </span>
                             <Link to="/login" onClick={logoutHandler} className='nav-btn'>
                                 Logout
                             </Link>

@@ -53,7 +53,7 @@ function ProductDetails(){
     return(
         <div className="product-details">
             <h1>{item?.name}</h1>
-            <img id="single-product-image" src={imageSrc} width="500px" />
+            <img id="single-product-image" src={imageSrc} width="300px" />
             <p className="single-product-description">{item?.description}</p>
             <h3 className="single-product-price">{item?.price} MDL</h3>
             { 
